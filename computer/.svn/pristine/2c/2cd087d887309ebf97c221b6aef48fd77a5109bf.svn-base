@@ -1,0 +1,6 @@
+
+body{color:white;background-image: url(../images/background.jpg);}
+
+/*登录页面样式*/
+.login_box{width:500px;height:250px;margin:100px auto auto auto;text-align: center;background-color: rgba(59,200,246,0.3);border: 4px solid rgba(0,33,68,0.1);border-radius:4px;}
+.login_box td{width:80px;line-height: 24px;}

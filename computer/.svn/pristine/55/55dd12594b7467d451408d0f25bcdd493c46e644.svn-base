@@ -1,0 +1,54 @@
+package action;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+import service.UserService;
+import sun.security.jgss.LoginConfigImpl;
+import util.MD5;
+
+import model.User;
+
+public class UserAction extends ActionSupport implements ModelDriven<User>{
+	
+	User user=new User();
+	UserService service;
+
+	public User getModel(){
+		return user;
+	}
+	public UserService getService() {
+		return service;
+	}
+
+	public void setService(UserService service) {
+		this.service = service;
+	}
+	public String regUser(){
+		//MD5加密
+		getModel().setPassword(MD5.calcMD5(getModel().getPassword()));
+
+		service.regUser(getModel());
+	    this.addActionMessage("注册成功！");//?
+	    return "index";		
+	}
+	
+	public String login(){
+		//MD5加密
+		getModel().setPassword(MD5.calcMD5(getModel().getPassword()));
+
+		User tempUser=service.login(getModel());
+		if (tempUser!=null) {
+			ServletActionContext.getRequest().getSession().setAttribute("User",tempUser);
+			return "index";
+		} else {
+			addActionMessage("用户名或密码错误!");
+		}
+		return "input";
+	}
+
+
+
+
+}

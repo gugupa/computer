@@ -1,5 +1,7 @@
 ﻿*{
-	margin:50;
+	margin:50px;
+	outline:none;
+	color:red;
 	padding:0;
 }
 body{

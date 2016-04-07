@@ -12,6 +12,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>${session.tempArticle.title}</title>
+    
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="images/shorticon.png"/>
+	
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   

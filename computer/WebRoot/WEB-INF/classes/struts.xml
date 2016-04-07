@@ -35,4 +35,24 @@
        <result name="result">/result.jsp </result>
    </action>
 </package>
+
+<!--我在这里为工程布下拦截器-->
+<package name="default" extends="struts-default">
+    <interceptors>
+       <!--拦截器对应的class-->
+       <interceptor name="LoginInterceptors" class="">
+          <!--excludeName是例外的action，也就是下面这几个action不会被拦截-->
+          <param name="excludeName">regUser</param>
+          <!--customer可以作为参数传递，取自session.put("cuatomer",db_customer),中的这个customer-->
+          <param name="sessionName">customer</param>         
+       </interceptor>
+       <!--定义拦截器 栈、用来放拦截器，其中LoginInterceptors是登录拦截器，也就是我们自定义的这个拦截器
+       defaultStack是struts默认拦截器，必须加上，否则struts自带的很多功能就没法使用，比如传参-->
+       <interceptor-stack name="myInterceptors">
+             <interceptor-ref name="defaultStack"></interceptor-ref>
+             <interceptor-ref name="LoginInterceptors"/>          
+       </interceptor-stack>
+    </interceptors>
+</package>
+
 </struts>

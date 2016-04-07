@@ -1,4 +1,4 @@
-*{
+﻿*{
 	margin:0;
 	padding:0;
 }
@@ -11,7 +11,7 @@ body{
 }
 /*容器*/
 .contain{
-	width:1024px;
+	width:10px;
 	margin:0 auto;
 	background:none;
 }

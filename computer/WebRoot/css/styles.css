@@ -1,4 +1,4 @@
-*{
+﻿*{
 	margin:0;
 	padding:0;
 }
@@ -46,9 +46,10 @@ body{
 	text-decoration: none;
 }
 /*主页导航栏*/
-.banner ul li {list-style-type: none;float:left;width:170.51px;background-color: white;line-height:30px;text-align:center;}
-.banner ul li a{text-decoration: none;font:24px;}
-.add_article_button{line-height: 40px;width:100px;text-align: center;vertical-align: middle;background-color: white;}
+.banner ul li {
+list-style-type: none;float:left;width:170.51px;line-height:30px;text-align:center;}
+.banner ul li a{font:24px;}
+.add_article_button{line-height: 40px;width:100px;text-align: center;vertical-align: middle;}
 .add_article_button a{color:green;text-decoration: none;}
 .search_box{margin-left: 750px;}
 .search_input{line-height:30px;padding-left:5px;vertical-align: middle;outline: none;border-radius:4px;}

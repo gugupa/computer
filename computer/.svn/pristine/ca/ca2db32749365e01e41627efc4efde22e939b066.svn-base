@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<!--数据源 -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<!-- 指定连接数据库的JDBC驱动 -->
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<!-- 连接数据库所用的URL -->
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/computer">
+		</property>
+		<!-- 连接数据库的用户名 -->
+		<property name="username" value="root"></property>
+		<!-- 连接数据库的密码 -->
+		<property name="password" value=""></property>	
+	</bean>
+	
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<!-- 注册Hibernate的映射文件 -->
+        <property name="mappingResources">
+            <list>
+	            <value>model/User.hbm.xml</value>
+	            <value>model/Comment.hbm.xml</value>
+	            <value>model/Article.hbm.xml</value></list>
+        </property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+
+
+	<!-- 数据库访问类BaseDAOImpl -->    
+	<bean id="BaseDAO" class="dao.BaseDAOImpl">
+	     <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	
+	
+  
+    <!-- 部署用户管理业务逻辑组件UserServiceImpl --> 
+	<bean id="UserService" class="service.UserServiceImpl">
+		<property name="dao">
+			<ref bean="BaseDAO" />
+		</property>
+	</bean>
+	<!-- 部署评论管理业务逻辑组件CommentServiceImpl --> 
+	<bean id="CommentService" class="service.CommentServiceImpl">
+		<property name="dao">
+			<ref bean="BaseDAO" />
+		</property>
+	</bean>
+	<!-- 部署文章管理业务逻辑组件ArticleServiceImpl --> 
+	<bean id="ArticleService" class="service.ArticleServiceImpl">
+		<property name="dao">
+			<ref bean="BaseDAO" />
+		</property>
+	</bean>
+	
+	
+	
+	
+	<!-- 部署Struts2负责用户事务管理的控制器UserAction --> 
+	<bean id="UserAction" class="action.UserAction" scope="prototype">	
+		<property name="service">
+			<ref bean="UserService"/>
+		</property>
+	</bean>
+	<!-- 部署Struts2负责评论事务管理的控制器CommentAction --> 
+	<bean id="CommentAction" class="action.CommentAction" scope="prototype">	
+		
+	</bean>
+	<!-- 部署Struts2负责文章事务管理的控制器ArticleAction --> 
+	<bean id="ArticleAction" class="action.ArticleAction" scope="prototype">	
+		
+	</bean>
+</beans>

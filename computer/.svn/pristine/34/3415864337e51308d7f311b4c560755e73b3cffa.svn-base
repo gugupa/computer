@@ -1,0 +1,106 @@
+package model;
+
+import java.sql.Timestamp;
+
+/**
+ * User entity. @author MyEclipse Persistence Tools
+ */
+
+public class User implements java.io.Serializable {
+
+	// Fields
+
+	private Integer id;
+	private String username;
+	private String password;
+	private String email;
+	private String laber;
+	private String img;
+	private String integtal;
+	private Timestamp rdate;
+
+	// Constructors
+
+	/** default constructor */
+	public User() {
+	}
+
+	/** full constructor */
+	public User(String username, String password, String email, String laber,
+			String img, String integtal, Timestamp rdate) {
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.laber = laber;
+		this.img = img;
+		this.integtal = integtal;
+		this.rdate = rdate;
+	}
+
+	// Property accessors
+
+	public Integer getId() {
+		return this.id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLaber() {
+		return this.laber;
+	}
+
+	public void setLaber(String laber) {
+		this.laber = laber;
+	}
+
+	public String getImg() {
+		return this.img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public String getIntegtal() {
+		return this.integtal;
+	}
+
+	public void setIntegtal(String integtal) {
+		this.integtal = integtal;
+	}
+
+	public Timestamp getRdate() {
+		return this.rdate;
+	}
+
+	public void setRdate(Timestamp rdate) {
+		this.rdate = rdate;
+	}
+
+}

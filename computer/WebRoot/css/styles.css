@@ -1,10 +1,5 @@
 ﻿*{
-	margin:50px;
-	outline:none;
-	color:red;
-	/*克隆git版本的技术*/
-	width:130px;
-	height:300px;
+	margin:0;
 	padding:0;
 }
 body{
@@ -16,7 +11,7 @@ body{
 }
 /*容器*/
 .contain{
-	width:1024px;
+	width:10px;
 	margin:0 auto;
 	background:none;
 }
@@ -51,10 +46,9 @@ body{
 	text-decoration: none;
 }
 /*主页导航栏*/
-.banner ul li {
-list-style-type: none;float:left;width:170.51px;line-height:30px;text-align:center;}
-.banner ul li a{font:24px;}
-.add_article_button{line-height: 40px;width:100px;text-align: center;vertical-align: middle;}
+.banner ul li {list-style-type: none;float:left;width:170.51px;background-color: white;line-height:30px;text-align:center;}
+.banner ul li a{text-decoration: none;font:24px;}
+.add_article_button{line-height: 40px;width:100px;text-align: center;vertical-align: middle;background-color: white;}
 .add_article_button a{color:green;text-decoration: none;}
 .search_box{margin-left: 750px;}
 .search_input{line-height:30px;padding-left:5px;vertical-align: middle;outline: none;border-radius:4px;}

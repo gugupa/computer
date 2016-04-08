@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       <li><a href="<%=basePath%>/index.jsp?user.id=${user.id}"><i class="fa fa-ul fa-magic"></i>首页</a></li>
 	       <li><a href="<s:url action="Article_searchArticles?keyword=hql"/>">编言</a></li>
 	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">web开发</a></li>
-	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">移动开发</a></li>
+	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">移发</a></li>
 	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">硬件开发</a></li>
 	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">数据库</a></li>
 	     </ul>

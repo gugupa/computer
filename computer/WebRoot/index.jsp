@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <nav class="banner">
 	     <ul>
 	       <li><a href="<%=basePath%>/index.jsp?user.id=${user.id}"><i class="fa fa-ul fa-magic"></i>首页</a></li>
-	       <li><a href="<s:url action="Article_searchArticles?keyword=hql"/>">编程语言</a></li>
+	       <li><a href="<s:url action="Article_searchArticles?keyword=hql"/>">编言</a></li>
 	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">web开发</a></li>
 	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">移动开发</a></li>
 	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">硬件开发</a></li>

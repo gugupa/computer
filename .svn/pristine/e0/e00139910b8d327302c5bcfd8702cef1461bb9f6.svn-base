@@ -1,0 +1,15 @@
+package service;
+
+import dao.BaseDAO;
+
+public class ArticleServiceImpl implements ArticleService{
+	BaseDAO dao;
+
+	public BaseDAO getDao() {
+		return dao;
+	}
+
+	public void setDao(BaseDAO dao) {
+		this.dao = dao;
+	}
+}

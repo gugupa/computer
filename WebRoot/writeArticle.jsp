@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <%@taglib prefix="s" uri="/struts-tags"%>
 	<%@taglib prefix="cp" uri="/computer"%>
 	
-    <title>编辑文章</title>
+    <title>添加文章</title>
     
   </head>
   

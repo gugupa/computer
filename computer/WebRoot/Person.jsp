@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'Person.jsp' starting page</title>
+    <title>My JSP  page</title>
     
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap.min.css">
 	<link rel="shortcut icon" href="images/shorticon.png"/>

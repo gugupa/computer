@@ -16,24 +16,28 @@
 	 <link rel="shortcut icon" href="images/shorticon.png"/>
      <%@taglib prefix="s" uri="/struts-tags"%>
      
+     <link rel="stylesheet" type="text/css" href="./css/login.css"/>
+     
   </head>
   
   <body>
-  <main class="center_box" >
-    <s:form action="User_login" methtod="post" cssClass="form-horizontal col-sm-8">
+  <main class="container-fluid">
+    <s:form action="User_login" methtod="post" cssClass="form-horizontal col-lg-5  col-md-offset-3 from_login">
 		
 		  <div class="form-group">
-		    <label for="email" class="col-sm-4 control-label">邮箱</label>
-		    <div class="col-sm-8">
-		      <s:textfield id="email"  name="email" class="form-control" placeholder="Email"/>
+		    <label for="email" class="col-lg-4 control-label">邮箱</label>
+		    <div class="col-lg-8">
+		      <s:textfield id="email"  name="email" cssClass="form-control" placeholder="Email"/>
 		    </div>
 		  </div>
+		  
 		  <div class="form-group">
-		    <label for="Password" class="col-sm-4 control-label">密码</label>
-		    <div class="col-sm-8">
-		      <s:password id="password"  name="password" class="form-control" placeholder="Password"/>
+		    <label for="Password" class="col-lg-4 control-label">密码</label>
+		    <div class="col-lg-8">
+		      <s:password id="password"  name="password" cssClass="form-control" placeholder="Password"/>
 		    </div>
 		  </div>
+		  
 		  <div class="form-group">
 		    <div class="col-sm-offset-2 col-sm-10">
 		      <div class="checkbox">
@@ -43,20 +47,13 @@
 		      </div>
 		    </div>
 		  </div>
+		  
 		  <div class="form-group">
 		    <div class="col-sm-offset-2 col-sm-10">
-		      <s:submit value="登录" class="btn btn-default"/>
+		      <s:submit value="登录" cssClass="btn btn-default"/>
 		    </div>
 		  </div>
-  </s:form> 
-    
-    
-      <!--<table class="center_box">
-       <tr><td><label>邮箱</label></td><td><s:textfield id="email"  name="email"/></td></tr>
-        <tr><td><label>密码</label></td><td><s:password id="password"  name="password"/></td></tr>
-        <tr><td><input type="button" value="注册" /></td><td><s:submit value="登录"/></td></tr>
-      </table>-->
-        
+  </s:form>    
   </main> 
                    
 </body>

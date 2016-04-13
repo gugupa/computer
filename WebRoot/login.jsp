@@ -21,7 +21,7 @@
   </head>
   
   <body>
-  <main class="container-fluid">
+  l<main class="container-fluid">
     <s:form action="User_login" methtod="post" cssClass="form-horizontal col-lg-5  col-md-offset-3 from_login">
 		
 		  <div class="form-group">
@@ -39,18 +39,25 @@
 		  </div>
 		  
 		  <div class="form-group">
-		    <div class="col-sm-offset-2 col-sm-10">
+		    <div class="col-sm-offset-4 col-sm-3">
 		      <div class="checkbox">
 		        <label>
 		          <input type="checkbox">记住密码
 		        </label>
-		      </div>
+		      </div>   
 		    </div>
+		    <div class="col-sm-offset-1 col-sm-4">	     
+		        <a href="#" class="login_forget">忘记密码？</a>
+		    </div> 
+		    
 		  </div>
 		  
 		  <div class="form-group">
-		    <div class="col-sm-offset-2 col-sm-10">
-		      <s:submit value="登录" cssClass="btn btn-default"/>
+		    <div class="col-sm-offset-4 col-sm-2">
+		      <s:submit value="登录" cssClass="btn btn-default login_btn"/>
+		    </div>
+		    <div class="col-sm-offset-2 col-sm-2 reg_btn">
+		      <button class="btn btn-default">注册</button>
 		    </div>
 		  </div>
   </s:form>    

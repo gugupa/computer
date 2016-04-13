@@ -9,29 +9,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'resultList.jsp' starting page</title>
+    <title>文章列表</title>
     
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap.min.css">
 	<link rel="shortcut icon" href="images/shorticon.png"/>
-
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
-
-
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/resultList.css">
   </head>
   
-  <body  style="background-image:none;overflow:hidden;">
- <table height="872" class="resultList" >    
+  <body>
+     
+   <ul> 
     <c:forEach items="${articles}" var="article"> 
-		<tr class="rslist_title" > 
-		    <td><a href="Article_loadArticle?id=${article.articleId}" target="_blank"><c:out value="${article.title}"/></a></td>          
-	    </tr>     
-		<tr class="rslist_acontent">
-		    <td height="340"><a href="Article_loadArticle?id=${article.articleId}" target="_blank"><c:out value="${article.acontent}"/></a></td>
-		</tr>
-	   
-   </c:forEach>  
-        
-</table>   
+	  <li class="resultList">	 
+	     <div class="rslist_title">
+		    <a href="Article_loadArticle?id=${article.articleId}" target="_blank">
+		       <c:out value="${article.title}"/>
+		    </a>          
+	     </div> 
+	     <div class="rslist_acontent"> 
+		    <a href="Article_loadArticle?id=${article.articleId}" target="_blank">
+		      <c:out value="${article.acontent}"/>
+		    </a>
+		 </div> 	   
+      </li>   
+    </c:forEach>
+   </ul>          
+   
   <p><img src="images/background.jpg" width="610" height="407"></p>
   </body>
 </html>

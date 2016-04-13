@@ -1,4 +1,17 @@
 /*登录页面样式*/
+body{
+	background-image: url(../images/login_img.jpg);
+}
 .from_login{
 	margin-top:100px;
+	padding-top:30px;
+	background-color: rgba(255,255,255,0.5);
+	border-radius:5px;
+}
+a.login_forget{
+    display: block;
+    padding:7px;
+}
+.login_btn{
+	
 }

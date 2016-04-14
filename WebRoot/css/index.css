@@ -1,0 +1,22 @@
+
+/*添加文章按钮*/
+.add_article_button{
+	margin-top:10px;
+	margin-left:-35px;
+    text-align: center;
+}
+.add_article_button a,a:hover,a:focus{
+	outline:none;
+	text-decoration: none;
+}
+
+/*搜索框*/
+.search_box{
+	margin-top:10px;
+	float:right;
+}
+.addon_button{
+    background: none;
+    padding:0;
+    border-left: none;
+}

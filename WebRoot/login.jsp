@@ -21,7 +21,8 @@
   </head>
   
   <body>
-  l<main class="container-fluid">
+  <main class="container-fluid">
+    <h1>分享你的智慧</h1>
     <s:form action="User_login" methtod="post" cssClass="form-horizontal col-lg-5  col-md-offset-3 from_login">
 		
 		  <div class="form-group">

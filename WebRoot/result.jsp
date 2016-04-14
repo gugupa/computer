@@ -20,36 +20,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <div class="contain" style="height:1800px;">
-  
-     <div class="head">
-         <div class="head_right"><a  target="_self" href="<%=basePath%>/login.jsp">登录</a>|<a  target="_self" href="<%=basePath%>/regUser.jsp">注册</a></div>
-	     <h1><img src="<%=basePath%>/images/logo.png"/></h1>
-	     <hr/>
-     </div>
-     
-     <div class="banner">
-	     <ul>
-	       <li><a href="<%=basePath%>/index.jsp?user.id=${user.id}">首页</a></li>
-	       <li><a href="<%=basePath%>/resultList.jsp?keyword='编程语言'">编程语言</a></li>
-	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">web开发</a></li>
-	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">移动开发</a></li>
-	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">硬件开发</a></li>
-	       <li><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}">数据库</a></li>
+ <header>
+      <nav class="banner">
+	     <ul class="nav nav-pills">
+	       <li role="presentation" class="active">
+	           <a href="<%=basePath%>/index.jsp?user.id=${user.id}" class="banner_a"><i class="fa fa-ul fa-magic"></i>首页</a>
+	       </li>
+	       <li role="presentation"><a href="<s:url action="Article_searchArticles?keyword=hql" />" class="banner_a">编程语言</a></li>
+	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">web开发</a></li>
+	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">移动开发</a></li>
+	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">硬件开发</a></li>
+	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">数据库</a></li>
+	       <li role="presentation" class="dropdown">
+	         <s:if test="#session.user.username ==''||#session.user.username ==null">
+                <a  target="_self" href="<%=basePath%>/login.jsp">登录</a>
+		        <a  target="_self" href="<%=basePath%>/regUser.jsp">注册</a>
+		     </s:if>
+		     <s:else>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+				  <img src="<%=basePath%>/upload/${user.img}" />
+			      Hi&nbsp;, &nbsp;${session.user.username}&nbsp;, &nbsp;点这里试试<span class="caret"></span>
+			    </a>
+				<ul class="dropdown-menu">
+				      <li>战斗值：${session.user.integtal}</li>
+			         <li>个人中心</li>
+			    </ul>
+			 </s:else>
+	       </li>
 	     </ul>
-     </div>
-     
-     <div >
-		     <img src="<%=basePath%>/upload/${user.img}" />
-		     <span >Hi&nbsp;, &nbsp;${session.user.username}</span>
-		     <span >等级：${session.user.integtal}</span>
-    </div>		  
+     </nav>
+  </header>	  
 	   
-    <div class="result">
-        <div class="result_title"><c:out value="${session.tempArticle.title}"></c:out></div>
-        <div class="result_content"><c:out value="${session.tempArticle.acontent}"></c:out></div>
-    </div>
- </div>
+    <main class="result">
+        <div class="result_title">
+            <h2><c:out value="${session.tempArticle.title}"></c:out></h2>
+        </div>
+        <div class="result_content">
+            <h4><c:out value="${session.tempArticle.acontent}"></c:out></h4>
+        </div>
+    </main>
+
  
   </body>
 </html>

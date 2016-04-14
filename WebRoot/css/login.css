@@ -1,17 +1,35 @@
 /*登录页面样式*/
-body{
-	background-image: url(../images/login_img.jpg);
+h1{ 
+	padding:10px;
+	margin:120px 350px;;
+	color:white;
+	text-align:center;
+	line-height:34px;
+	background: -webkit-linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,0)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, rgba(255,0,0,0), rgba(255,0,0,0)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, rgba(255,0,0,0), rgba(255,0,0,0)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, rgba(255,0,0,0),rgba(42,145,84,0.8), rgba(255,0,0,0)); /* 标准的语法（必须放在最后） */
 }
 .from_login{
-	margin-top:100px;
+	width:667px;
+	margin-top:-80px;
 	padding-top:30px;
-	background-color: rgba(255,255,255,0.5);
+	background-color: rgba(255,255,255,0.9);
 	border-radius:5px;
+	font-size:18px;
 }
 a.login_forget{
     display: block;
     padding:7px;
 }
 .login_btn{
-	
+	margin: -70px;
+	position: relative;
+	width:100px;
+}
+.reg_btn button{
+	margin-left:-10px;
+	display:block;
+	position: absolute;
+	width:100px;
 }

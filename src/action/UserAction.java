@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
@@ -15,8 +16,6 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
 import service.UserService;
 import util.MD5;
 
@@ -26,41 +25,22 @@ import model.User;
 public class UserAction extends ActionSupport implements ModelDriven<User>{
 	
 	User user=new User();
-	File img;
-	String imgContentType;
-	String imgFileName;
 	
+	private File image;
+	private String imageContentType;
+	private String imageFileName;
 	
+
 	@Resource(name="UserService")
 	UserService u_service;
 
 	public User getModel(){
+		if(user==null){
+			return new User();
+		}
 		return user;
 	}
-
-	public UserService getU_service() {
-		return u_service;
-	}
 	
-	public void setU_service(UserService uService) {
-		u_service = uService;
-	}
-
-	public String getImgContentType() {
-		return imgContentType;
-	}
-
-	public void setImgContentType(String imgContentType) {
-		this.imgContentType = imgContentType;
-	}
-
-	public File getImg() {
-		return img;
-	}
-
-	public void setImg(File img) {
-		this.img = img;
-	}
 	//注册用户
 	public String regUser() throws Exception{
 		//MD5加密
@@ -77,24 +57,24 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		//处理头像上传
 		String path = ServletActionContext.getServletContext().getRealPath("/upload");
 		
-		img=getImg();
-		System.out.println(getModel().getImg());
-		System.out.println(img);
+		image=getImage();
+		System.out.println("uu"+getModel().getImg());
+		System.out.println("vv"+image);
 		
-		if (img!=null) {
+		if (image!=null) {
 			try {
-				InputStream is =new FileInputStream(img);
-				String fileContentType=this.getImgContentType();
+				InputStream is =new FileInputStream(image);
+				String fileContentType=this.getImageContentType();
 				//判断指定文件的扩展名，生成相应的随机码
 				if (fileContentType.equals("image/jpeg")||fileContentType.equals("image/pjpeg")) {
 					//生成随机码
-					imgFileName=UUID.randomUUID().toString()+".jpg";
+					imageFileName=UUID.randomUUID().toString()+".jpg";
 				} else if(fileContentType.equals("image/gif")){
-                    imgFileName=UUID.randomUUID().toString()+".gif";
+					imageFileName=UUID.randomUUID().toString()+".gif";
 				}else if (fileContentType.equals("image/png")) {
-					imgFileName=UUID.randomUUID().toString()+".png";
+					imageFileName=UUID.randomUUID().toString()+".png";
 				}
-				File file=new File(path,imgFileName);
+				File file=new File(path,imageFileName);
 				OutputStream os =new FileOutputStream(file);
 				byte[] b =new byte[1024];
 				int bs =0;
@@ -109,8 +89,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 			}
 		
 		}
-		if (img!=null) {
-			getModel().setImg("upload/"+imgFileName);
+		if (image!=null) {
+			getModel().setImg("upload/"+imageFileName);
 		} else {
 			getModel().setImg("upload/NoImage.jpg");
 		}
@@ -138,7 +118,40 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		}
 		return "input";
 	}
+
 	
+	public UserService getU_service() {
+		return u_service;
+	}
+	
+	public void setU_service(UserService uService) {
+		u_service = uService;
+	}
+
+	public void setImageContentType(String imageContentType) {
+		this.imageContentType = imageContentType;
+	}
+
+	public String getImageContentType() {
+		return imageContentType;
+	}
+
+	public File getImage() {
+		return image;
+	}
+
+	public void setImage(File image) {
+		this.image = image;
+	}
+
+	public String getImageFileName() {
+		return imageFileName;
+	}
+
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
+	}
+
 
 
 

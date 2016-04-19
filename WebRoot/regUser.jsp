@@ -13,8 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap.min.css">
 	<link rel="shortcut icon" href="images/shorticon.png"/>
-	
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">	
 	<%@taglib prefix="s" uri="/struts-tags"%>
 	<%@taglib prefix="cp" uri="/computer"%>
 
@@ -43,8 +42,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          <s:textfield  id="again_password" name="again_password"/>
 	       </li>
 	       <li>
-	          <label for="img">头像</label>
-	          <s:file  name="img"/>
+	          <label for="image">头像</label>
+	          <s:file id="image"  name="image"/>
 	       </li>
 	       <li>
 	          <label for="validacode">验证码</label>

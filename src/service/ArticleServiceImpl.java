@@ -5,22 +5,21 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import model.Article;
-import dao.BaseDAO;
+import dao.ArticleDao;
 
 @Service("ArticleService") 
 public class ArticleServiceImpl implements ArticleService{
 	
-	@Resource(name="BaseDAO")
-	BaseDAO dao;
+	@Resource(name="ArticleDao")
+	ArticleDao dao;
 
-	public BaseDAO getDao() {
+	public ArticleDao getDao() {
 		return dao;
 	}
 
-	public void setDao(BaseDAO dao) {
+	public void setDao(ArticleDao dao) {
 		this.dao = dao;
 	}
 

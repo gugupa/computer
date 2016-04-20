@@ -1,6 +1,5 @@
 package service;
 
-import model.Article;
 import model.User;
 
 public interface UserService {

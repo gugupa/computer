@@ -3,20 +3,19 @@ package service;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import dao.BaseDAO;
+import dao.CommentDao;
 
 @Service("CommentService") 
 public class CommentServiceImpl implements CommentService{
 	
-	@Resource(name="BaseDAO")
-    BaseDAO dao;
-    public BaseDAO getDao() {
+	@Resource(name="CommentDao")
+    CommentDao dao;
+    public CommentDao getDao() {
 		return dao;
 	}
 
-	public void setDao(BaseDAO dao) {
+	public void setDao(CommentDao dao) {
 		this.dao = dao;
 	}
 }

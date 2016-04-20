@@ -1,27 +1,24 @@
 ﻿package service;
-
-import java.util.List;
-
 import javax.annotation.Resource;
+
 
 
 import org.springframework.stereotype.Service;
 
-
-import model.Article;
 import model.User;
-import dao.BaseDAO;
+import dao.UserDao;;
+
 @Service("UserService") 
 public class UserServiceImpl implements UserService{
 
-	@Resource(name="BaseDAO")
-	BaseDAO dao;
+	@Resource(name="UserDao")
+	UserDao dao;
 	
-	public BaseDAO getDao() {
+	public UserDao getDao() {
 		return dao;
 	}
 
-	public void setDao(BaseDAO dao) {
+	public void setDao(UserDao dao) {
 		this.dao = dao;
 	}
 

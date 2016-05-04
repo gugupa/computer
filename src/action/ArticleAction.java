@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import service.ArticleService;
+import service.CommentService;
 import model.Article;
+import model.Comment;
 import model.User;
 
 import dao.BaseDAO;
@@ -28,6 +30,9 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	
 	@Resource(name="ArticleService")
 	ArticleService a_service;
+	
+	@Resource(name="CommentService")
+	CommentService c_service;
 	
     String keyword="";
 	
@@ -95,9 +100,15 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	
 	//根据id查询文章
 	public String loadArticle() {
+		
 		int id=Integer.valueOf(ServletActionContext.getRequest().getParameter("id"));
 		Article tempArticle=a_service.loadArticle(id);
 		ServletActionContext.getRequest().getSession().setAttribute("tempArticle",tempArticle);
+		
+		//根据id加载这篇文章的评论
+		List<Comment> comments=c_service.listAllValidComments(tempArticle.getArticleId());
+		//将结果comments存入session
+		ServletActionContext.getRequest().getSession().setAttribute("comments", comments);
 		return "result";	
 	}
 

@@ -35,21 +35,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">移动开发</a></li>
 	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">硬件开发</a></li>
 	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">数据库</a></li>
-	       <li role="presentation" class="dropdown">
-	         <s:if test="#session.user.username ==''||#session.user.username ==null">
-                <a  target="_self" href="<%=basePath%>/login.jsp">登录</a>
-		        <a  target="_self" href="<%=basePath%>/regUser.jsp">注册</a>
-		     </s:if>
-		     <s:else>
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-				  <img src="<%=basePath%>/upload/${user.img}" />
-			      Hi&nbsp;, &nbsp;${session.user.username}&nbsp;, &nbsp;点这里试试<span class="caret"></span>
-			    </a>
-				<ul class="dropdown-menu">
-				      <li>战斗值：${session.user.integtal}</li>
-			         <li>个人中心</li>
-			    </ul>
-			 </s:else>
+	       <li role="presentation" class="dropdown">	       
+	        <c:choose>
+	           <c:when test="${session.user==null}">
+	               <a href="<%=basePath%>/login.jsp" target="_self">登录</a>
+	               <a href="<%=basePath%>/regUser.jsp" target="_self">注册</a> 
+	           </c:when>
+	           <c:otherwise>
+	                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+					  <img src="<%=basePath%>/upload/${user.img}" />
+				      Hi&nbsp;, ${session.user.username}&nbsp;&nbsp;<span class="caret"></span>
+				    </a>
+					<ul class="dropdown-menu">
+					      <li>${session.user.integtal}</li>
+				         <li><a href="Person.jsp" target="_self">个人中心</a> </li>
+				    </ul>
+	           </c:otherwise>
+	        </c:choose>
 	       </li>
 	     </ul>
      </nav>

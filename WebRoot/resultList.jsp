@@ -35,7 +35,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </li>   
     </c:forEach>
    </ul>          
-   
-  <p><img src="images/background.jpg" width="610" height="407"></p>
+
   </body>
 </html>

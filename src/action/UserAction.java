@@ -16,12 +16,15 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.validator.annotations.Validation;
+import com.opensymphony.xwork2.validator.annotations.Validations;
+
 import service.UserService;
 import util.MD5;
 
 import model.User;
 
-@Controller(value="UserAction")  @Scope("prototype")
+@Controller(value="UserAction")  @Scope("prototype") @Validations
 public class UserAction extends ActionSupport implements ModelDriven<User>{
 	
 	User user=new User();

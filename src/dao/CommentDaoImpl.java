@@ -22,11 +22,12 @@ public class CommentDaoImpl extends HibernateDaoSupport implements CommentDao{
 //	        return (ArrayList<Article>) articleList;
 //	}
 	
-//	保存或更新文章
+//	保存评论
 	public void saveOrUpdate(Object object) {
 		getHibernateTemplate().saveOrUpdate(object);	
 	}
 
+//  根据hql语句加载指定的对象
 	public Object loadObject(String hql) {
 		Object object=null;
 		List list=getHibernateTemplate().find(hql);
@@ -36,6 +37,7 @@ public class CommentDaoImpl extends HibernateDaoSupport implements CommentDao{
 		return object;
 	}
 
+//  加载表里指定id的对象
 	public Object loadById(Class clazz, Serializable id) {	
 		return  getHibernateTemplate().get(clazz, id);
 	}
@@ -48,7 +50,6 @@ public class CommentDaoImpl extends HibernateDaoSupport implements CommentDao{
 	@Autowired  
     public void setSessionFactoryOverride(SessionFactory sessionFactory)   
     {   
-  
         super.setSessionFactory(sessionFactory);   
     }  
 	

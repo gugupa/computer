@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
- <header>
+ cooc<header>
       <nav class="banner">
 	     <ul class="nav nav-pills">
 	       <li role="presentation" class="active">
@@ -55,11 +55,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="result_title">
             <h2><c:out value="${session.tempArticle.title}"></c:out></h2>
         </div>
+        <div class="result_info">
+            <span>${session.tempArticle.author}</span>
+            <span>${session.tempArticle.uptime}</span>
+        </div>
         <div class="result_content">
             <h4><c:out value="${session.tempArticle.acontent}"></c:out></h4>
         </div>
     </main>
-
+    
+    <div class="credit">${session.tempArticle.credit}</div>
+    
+    <div class="comments">
+      <ul> 
+	    <c:forEach items="${comments}" var="comment"> 
+		  <li class="cList">	 
+		     <div class="c_info">
+		           <span><c:out value="${comment.commentTime}"/></span>   
+		     </div> 
+		     <div class="c_content"> 
+			      <c:out value="${comment.commentContent}"/>   
+			 </div> 	   
+	      </li>   
+	    </c:forEach>
+	   </ul>  
+    </div>
  
   </body>
 </html>

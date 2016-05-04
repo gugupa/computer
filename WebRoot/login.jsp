@@ -22,20 +22,20 @@
   
   <body>
   <main class="container-fluid">
-    <h1>分享你的智慧</h1>
-    <s:form action="User_login" methtod="post" cssClass="form-horizontal col-lg-5  col-md-offset-3 from_login">
+    <h1>Come on!</h1>
+    <s:form action="User_login" method="post" cssClass="form-horizontal col-lg-5  col-md-offset-3 from_login">
 		
 		  <div class="form-group">
-		    <label for="email" class="col-lg-4 control-label">邮箱</label>
+		    <label for="email" class="col-lg-4 control-label">Email</label>
 		    <div class="col-lg-8">
-		      <s:textfield id="email"  name="email" cssClass="form-control" placeholder="Email"/>
+		      <s:textfield id="email"  name="email" cssClass="form-control" placeholder="Email" required="required"/>
 		    </div>
 		  </div>
 		  
 		  <div class="form-group">
-		    <label for="Password" class="col-lg-4 control-label">密码</label>
+		    <label for="Password" class="col-lg-4 control-label">Password</label>
 		    <div class="col-lg-8">
-		      <s:password id="password"  name="password" cssClass="form-control" placeholder="Password"/>
+		      <s:password id="password"  name="password" cssClass="form-control" placeholder="Password" required="required"/>
 		    </div>
 		  </div>
 		  
@@ -43,14 +43,23 @@
 		    <div class="col-sm-offset-4 col-sm-3">
 		      <div class="checkbox">
 		        <label>
-		          <input type="checkbox">记住密码
+		          <input type="checkbox">下次自动登录
 		        </label>
 		      </div>   
 		    </div>
 		    <div class="col-sm-offset-1 col-sm-4">	     
 		        <a href="#" class="login_forget">忘记密码？</a>
 		    </div> 
-		    
+		  </div>
+		  
+		  <div class="form-group">
+		    <div class="col-sm-offset-4">
+		      <div class="checkbox">
+		        <label>
+		          <input type="checkbox">阅读并接受<a href="#" >《Cat用户协议》</a>
+		        </label>
+		      </div>   
+		    </div>
 		  </div>
 		  
 		  <div class="form-group">
@@ -58,7 +67,7 @@
 		      <s:submit value="登录" cssClass="btn btn-default login_btn"/>
 		    </div>
 		    <div class="col-sm-offset-2 col-sm-2 reg_btn">
-		      <button class="btn btn-default">注册</button>
+		      <button class="btn btn-default" href="regUser.jsp">注册</button>
 		    </div>
 		  </div>
   </s:form>    

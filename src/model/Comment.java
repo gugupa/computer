@@ -21,7 +21,7 @@ public class Comment implements java.io.Serializable {
 	// Fields
 
 	private Integer inforId;
-	private Article article;
+	private Article articleId;
 	private Integer receiverId;
 	private Integer senderId;
 	private String commentContent;
@@ -36,7 +36,7 @@ public class Comment implements java.io.Serializable {
 	/** full constructor */
 	public Comment(Article article, Integer receiverId, Integer senderId,
 			String commentContent, Timestamp conmentTime) {
-		this.article = article;
+		this.articleId = article;
 		this.receiverId = receiverId;
 		this.senderId = senderId;
 		this.commentContent = commentContent;
@@ -57,12 +57,12 @@ public class Comment implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "aticle_id")
-	public Article getArticle() {
-		return this.article;
+	public Article getArticleId() {
+		return this.articleId;
 	}
 
-	public void setArticle(Article article) {
-		this.article = article;
+	public void setArticleId(Article articleId) {
+		this.articleId = articleId;
 	}
 
 	@Column(name = "receiver_id")

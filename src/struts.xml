@@ -25,7 +25,7 @@
    
    <!--评论行为 -->
     <action name="Comment_*" class="CommentAction"  method="{1}">
-       
+       <result name="input">/result.jsp </result>
    </action>
    
    <!--文章行为 -->

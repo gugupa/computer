@@ -47,7 +47,7 @@ public class CommentAction extends ActionSupport implements ModelDriven<Comment>
 		
 		//将当前文章的记录
 		Article tempArticle=(Article) ServletActionContext.getRequest().getSession().getAttribute("tempArticle");
-		getModel().setArticle(tempArticle);
+		getModel().setArticleId(tempArticle);
 		
 		return INPUT;
 	}

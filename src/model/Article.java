@@ -29,7 +29,6 @@ public class Article implements java.io.Serializable {
 	private Timestamp uptime;
 	private Integer state;
 	private Integer credit;
-	private Set<Comment> comments = new HashSet<Comment>(0);
 
 	// Constructors
 
@@ -53,7 +52,6 @@ public class Article implements java.io.Serializable {
 		this.uptime = uptime;
 		this.state = state;
 		this.credit = credit;
-		this.comments = comments;
 	}
 
 	// Property accessors
@@ -121,14 +119,4 @@ public class Article implements java.io.Serializable {
 	public void setCredit(Integer credit) {
 		this.credit = credit;
 	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "article")
-	public Set<Comment> getComments() {
-		return this.comments;
-	}
-
-	public void setComments(Set<Comment> comments) {
-		this.comments = comments;
-	}
-
 }

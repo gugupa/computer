@@ -56,7 +56,7 @@ public class Comment implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "aticle_id")
+	@JoinColumn(name = "article_id")
 	public Article getArticleId() {
 		return this.articleId;
 	}

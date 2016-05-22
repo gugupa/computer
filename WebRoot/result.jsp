@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
- cooc<header>
+   <header>
       <nav class="banner">
 	     <ul class="nav nav-pills">
 	       <li role="presentation" class="active">
@@ -62,24 +62,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="result_content">
             <h4><c:out value="${session.tempArticle.acontent}"></c:out></h4>
         </div>
+        
+         <div>
+	        <s:form action="Comment_saveComment" method="POST">
+	         <div class="form-group">
+			     <label for="commentContent"><h5>添加评论</h5></label>
+			     <textarea id="commentContent" name="commentContent" class="form-control" rows="4"/>在这里写下你的评论</textarea>
+			     <s:submit value="提交" cssClass="btn btn-success "></s:submit>
+			 </div>	 
+	        </s:form>
+	    </div>
+	    
+	    <div class="comments">
+	      <ul> 
+		    <c:forEach items="${comments}" var="comment"> 
+			  <li class="cList">	 
+			     <div class="c_info">
+			           <span><c:out value="${comment.commentTime}"/></span>   
+			     </div> 
+			     <div class="c_content"> 
+				      <c:out value="${comment.commentContent}"/>   
+				 </div> 	   
+		      </li>   
+		    </c:forEach>
+		   </ul>  
+	    </div>
+	    
     </main>
     
     <div class="credit">${session.tempArticle.credit}</div>
+   
     
-    <div class="comments">
-      <ul> 
-	    <c:forEach items="${comments}" var="comment"> 
-		  <li class="cList">	 
-		     <div class="c_info">
-		           <span><c:out value="${comment.commentTime}"/></span>   
-		     </div> 
-		     <div class="c_content"> 
-			      <c:out value="${comment.commentContent}"/>   
-			 </div> 	   
-	      </li>   
-	    </c:forEach>
-	   </ul>  
-    </div>
  
   </body>
 </html>

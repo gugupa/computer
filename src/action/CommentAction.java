@@ -41,13 +41,21 @@ public class CommentAction extends ActionSupport implements ModelDriven<Comment>
 	//保存一条评论,添加完成以后仍是在当前页面
 	public String saveComment(){
 		
-		//将评论人id记录
+		//评论人id记录:sender
 		User reviewer=(User) ServletActionContext.getRequest().getSession().getAttribute("user");
 		getModel().setSenderId(reviewer.getId());
+		  
 		
-		//将当前文章的记录
+		//当前文章的记录:article_id
 		Article tempArticle=(Article) ServletActionContext.getRequest().getSession().getAttribute("tempArticle");
 		getModel().setArticleId(tempArticle);
+		
+		System.out.println("User："+reviewer);
+		System.out.println("Article："+tempArticle);
+		System.out.println("saveComment");
+		String CommentContent=getModel().getCommentContent();
+		System.out.println("getCommentContent:"+CommentContent);
+		c_service.saveComment(getModel());
 		
 		return INPUT;
 	}

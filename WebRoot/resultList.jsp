@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    
+    <meta charset="utf-8">
     <title>文章列表</title>
     
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap.min.css">

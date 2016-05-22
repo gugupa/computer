@@ -3,7 +3,7 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@taglib prefix="s" uri="/struts-tags"%> 
 <!DOCTYPE HTML >
 <html>
   <head>
@@ -12,18 +12,17 @@
     <title>登录</title>
     	
 	 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap.min.css">
-	 <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
-	 <link rel="shortcut icon" href="images/shorticon.png"/>
-     <%@taglib prefix="s" uri="/struts-tags"%>
-     
+	 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrapValidator.css">
+	 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/styles.css"/>
+	 <link rel="shortcut icon" href="images/shorticon.png"/>  
      <link rel="stylesheet" type="text/css" href="./css/login.css"/>
-     
+    
   </head>
   
   <body>
   <main class="container-fluid">
     <h1>Come on!</h1>
-    <s:form action="User_login" method="post" cssClass="form-horizontal col-lg-5  col-md-offset-3 from_login">
+    <s:form action="User_login" method="post" id="defaultForm" cssClass="form-horizontal col-lg-5  col-md-offset-3 from-login">
 		
 		  <div class="form-group">
 		    <label for="email" class="col-lg-4 control-label">Email</label>
@@ -72,6 +71,96 @@
 		  </div>
   </s:form>    
   </main> 
-                   
+
+<script src="<%=basePath%>js/jquery.min.js"></script>
+<script src="<%=basePath%>js/bootstrap.min.js"></script>
+<script src="<%=basePath%>js/bootstrapValidator.js"></script>   
+<!--<script type="text/javascript">
+        $(document).ready(function(){
+           $('#form-login')
+           .bootstrapValidator({
+                     message:'用户名或密码不能为空',
+                     feedbackIcons:{
+                           valid:'fa fa-ul fa-check',
+                           invalid:'fa fa-remove',
+                           validating:'fa fa-refreh'
+                     },
+                     fields:{
+                           email:{
+                                message:'邮箱无效',
+                                validators:{
+                                    notEmpty:{
+                                        message:'邮箱不得为空'
+                                    },
+                                    stringLength：{
+                                        min:6,
+                                        max:20,
+                                        message：'用户名必须在6-20个字符之间'
+                                    },
+                                    regexp：{
+                                        regexp: /^[a-zA-Z0-9_\.]+$/ ,
+                                        message:'用户名只能包含字母、数字、点、下划线' 
+                                    }
+                                }
+                           },
+                           password:{
+                                   validators：{
+                                       notEmpty：{
+                                            message:'密码不得为空'
+                                       },
+                                       different:{
+                                            field:email,
+                                            message:'密码不能与用户名相同'
+                                       }
+                                   }
+                           }
+                     }
+               });
+        });
+     </script>     
+-->
+<!--<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#defaultForm')
+		        .bootstrapValidator({
+		            message: '请输入内容',
+		            feedbackIcons: {
+		                valid: 'fa fa-check',
+		                invalid: 'fa fa-remove',
+		                validating: 'fa fa-refresh'
+		            },
+		            fields: {
+		                email: {
+		                    message: '用户名无效',
+		                    validators: {
+		                        notEmpty: {
+		                            message: '用户名不得为空'
+		                        },
+		                        stringLength: {
+		                            min: 6,
+		                            max: 20,
+		                            message: '用户名必须在6-20个字符之间'
+		                        },
+		                        regexp: {
+		                            regexp: /^[a-zA-Z0-9_\.]+$/,
+		                            message: '用户名只能包含字母、数字、点、下划线 '
+		                        }	                        
+		                    }
+		                },
+		                password: {
+		                    validators: {
+		                        notEmpty: {
+		                            message: '密码不得为空'
+		                        },
+		                        different: {
+									field: email,
+									message: '密码不能与用户名相同'
+									},
+		                    }
+		                }
+		            }
+		        })
+		});
+	</script>-->
 </body>
 </html>

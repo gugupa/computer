@@ -25,7 +25,7 @@ public class Comment implements java.io.Serializable {
 	private Integer receiverId;
 	private Integer senderId;
 	private String commentContent;
-	private Timestamp conmentTime;
+	private Timestamp commentTime;
 
 	// Constructors
 
@@ -35,12 +35,12 @@ public class Comment implements java.io.Serializable {
 
 	/** full constructor */
 	public Comment(Article article, Integer receiverId, Integer senderId,
-			String commentContent, Timestamp conmentTime) {
+			String commentContent, Timestamp commentTime) {
 		this.articleId = article;
 		this.receiverId = receiverId;
 		this.senderId = senderId;
 		this.commentContent = commentContent;
-		this.conmentTime = conmentTime;
+		this.commentTime = commentTime;
 	}
 
 	// Property accessors
@@ -92,13 +92,13 @@ public class Comment implements java.io.Serializable {
 		this.commentContent = commentContent;
 	}
 
-	@Column(name = "conment_time", length = 19)
-	public Timestamp getConmentTime() {
-		return this.conmentTime;
+	@Column(name = "comment_time", length = 19)
+	public Timestamp getCommentTime() {
+		return this.commentTime;
 	}
 
-	public void setConmentTime(Timestamp conmentTime) {
-		this.conmentTime = conmentTime;
+	public void setCommentTime(Timestamp commentTime) {
+		this.commentTime = commentTime;
 	}
 
 }

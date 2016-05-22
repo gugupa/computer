@@ -20,12 +20,12 @@
    <!--用户行为 -->
    <action name="User_*" class="UserAction"  method="{1}">
        <result name="index">/index.jsp </result>
-       <result name="input">/regUser.jsp </result>
+       <result name="input">/login.jsp </result>
    </action>
    
    <!--评论行为 -->
     <action name="Comment_*" class="CommentAction"  method="{1}">
-       <result name="input">/result.jsp </result>
+       <result name="input">/resultList.jsp </result>
    </action>
    
    <!--文章行为 -->

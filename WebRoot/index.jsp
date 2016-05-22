@@ -12,6 +12,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
   
     <title>Cat</title>
+    <meta charset="utf-8">
+
     
     <link rel="stylesheet"  href="css/bootstrap.min.css">
     <link rel="stylesheet"  href="css/font-awesome.min.css">
@@ -20,7 +22,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/index.css">
 	
-	
+ <script>
+    function getResult(keyword){
+        var mainframe=document.getElementById('mainframe');
+        mainframe.src="Article_searchArticles?keyword=编程语言&ie=utf-8";
+    }
+ </script>
   </head>
   
   <body>
@@ -30,11 +37,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       <li role="presentation" class="active">
 	           <a href="<%=basePath%>/index.jsp?user.id=${user.id}" class="banner_a"><i class="fa fa-ul fa-magic"></i>首页</a>
 	       </li>
-	       <li role="presentation"><a href="<s:url action="Article_searchArticles?keyword=hql" />" class="banner_a">编程语言</a></li>
-	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">web开发</a></li>
-	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">移动开发</a></li>
-	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">硬件开发</a></li>
-	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">数据库</a></li>
+	       <li role="presentation"><a href="#" onClick="getResult('编程语言')"class="banner_a">编程语言</a></li>
+	       <li role="presentation"><a href="#" onClick="getResult(text)" class="banner_a">web开发</a></li>
+	       <li role="presentation"><a href="#" onClick="getResult()" class="banner_a">移动开发</a></li>
+	       <li role="presentation"><a href="#" onClick="getResult()"class="banner_a">硬件开发</a></li>
+	       <li role="presentation"><a href="#" onClick="getResult()"class="banner_a">数据库</a></li>
 	       <li role="presentation" class="dropdown">	       
 	        <c:choose>
 	           <c:when test="${session.user==null}">

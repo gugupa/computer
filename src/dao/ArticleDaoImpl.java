@@ -42,6 +42,7 @@ public class ArticleDaoImpl extends HibernateDaoSupport implements ArticleDao{
 
 	/** 查询指定类的满足条件的持久化对象 */
 	public List query(String hql) {
+		System.out.println(hql);
 		return getHibernateTemplate().find(hql);
 	}
 

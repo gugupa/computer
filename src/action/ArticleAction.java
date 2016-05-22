@@ -84,8 +84,8 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	
 	//根据标题查询文章
 	public String searchArticles() {
-	
-		String hql="from Article as a where a.title like '%"+this.getKeyword()+"%' and a.state=1";
+	    String keyword=this.getKeyword();
+		String hql="from Article as a where a.title like '%"+keyword+"%'  or a.acontent like '%"+keyword+"%'  and a.state=1";
 		System.out.println(this.getKeyword());
 		System.out.println(hql);
 		try{	

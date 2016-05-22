@@ -44,6 +44,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		return user;
 	}
 	
+	
 	//注册用户
 	public String regUser() throws Exception{
 		//MD5加密

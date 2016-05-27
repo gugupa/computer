@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <nav class="banner">
 	     <ul class="nav nav-pills">
 	       <li role="presentation" class="active">
-	           <a href="<%=basePath%>/index.jsp?user.id=${user.id}" class="banner_a"><i class="fa fa-ul fa-magic"></i>首页</a>
+	           <a href="<%=basePath%>/index.jsp?user.id=${user.id}" class="banner_a"><i class="fa fa-ul fa-home"></i>首页</a>
 	       </li>
 	       <li role="presentation"><a href="<s:url action="Article_searchArticles?keyword=hql" />" class="banner_a">编程语言</a></li>
 	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">web开发</a></li>
@@ -33,16 +33,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       <li role="presentation"><a href="<%=basePath%>/resultList.jsp?user.id=${user.id}" class="banner_a">数据库</a></li>
 	       <li role="presentation" class="dropdown">
 	         <s:if test="#session.user.username ==''||#session.user.username ==null">
-                <a  target="_self" href="<%=basePath%>/login.jsp">登录</a>
-		        <a  target="_self" href="<%=basePath%>/regUser.jsp">注册</a>
+                <a target="_self" href="<%=basePath%>/login.jsp">登录</a>
+		        <a target="_self" href="<%=basePath%>/regUser.jsp">注册</a>
 		     </s:if>
 		     <s:else>
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 				  <img src="<%=basePath%>/upload/${user.img}" />
-			      Hi&nbsp;, &nbsp;${session.user.username}&nbsp;, &nbsp;点这里试试<span class="caret"></span>
+			      Hi&nbsp;, &nbsp;${session.user.username}&nbsp;, &nbsp;点这里<span class="caret"></span>
 			    </a>
 				<ul class="dropdown-menu">
 				      <li>战斗值：${session.user.integtal}</li>
+			         
 			         <li>个人中心</li>
 			    </ul>
 			 </s:else>

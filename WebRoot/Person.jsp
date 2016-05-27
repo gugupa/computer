@@ -24,6 +24,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
       
   <body>
-    <a class="btn btn-default" href="editUser.jsp">修改资料</a>  
+  <ul>
+     <li><a class="btn btn-default" href="editUser.jsp"><i class="fa fa-ul fa-edit"></i>修改资料</a></li>
+     <li><a class="btn btn-default" href="editUser.jsp"><i class="fa fa-ul fa-database"></i>管理博客</a></li>
+     <li><a class="btn btn-default" href="editUser.jsp"><i class="fa fa-ul fa-key"></i>修改密码</a></li>
+     <li><a class="btn btn-default" href="editUser.jsp"><i class="fa fa-ul fa-gear"></i>账户管理</a></li>
+  </ul>
+    
   </body>
 </html>

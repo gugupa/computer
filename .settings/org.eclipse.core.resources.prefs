@@ -1,3 +1,14 @@
-#Fri Dec 04 16:13:31 CST 2015
 eclipse.preferences.version=1
+encoding//WebRoot/css=UTF-8
+encoding//WebRoot/css/index.css=UTF-8
+encoding//WebRoot/css/login.css=UTF-8
+encoding//WebRoot/css/resultList.css=UTF-8
+encoding//src/action/CommentAction.java=UTF-8
+encoding//src/dao/ArticleDaoImpl.java=UTF-8
+encoding//src/dao/BaseDAO.java=UTF-8
+encoding//src/dao/CommentDao.java=UTF-8
+encoding//src/dao/CommentDaoImpl.java=UTF-8
+encoding//src/dao/UserDaoImpl.java=UTF-8
+encoding//src/model/Comment.java=UTF-8
 encoding//src/service/ArticleServiceImpl.java=GB2312
+encoding//src/service/CommentServiceImpl.java=UTF-8

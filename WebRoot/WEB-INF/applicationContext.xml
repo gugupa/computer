@@ -27,7 +27,7 @@
 		<!-- 连接数据库的用户名 -->
 		<property name="username" value="root"></property>
 		<!-- 连接数据库的密码 -->
-		<property name="password" value=""></property>	
+		<property name="password" value="male765567"></property>	
 	</bean>	
 	
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">

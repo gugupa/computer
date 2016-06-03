@@ -105,9 +105,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      <div class="form-group reg-form-row">
 	          <label for="image" class="col-sm-4 control-label">头像</label>
 	          <div class="col-sm-5">
-	             <input type="file" id="image" name="image" class="btn btn-default"/>
-	          </div>
-	      </div>
+	          <div class="fileupload fileupload-new" data-provides="fileupload">
+                                  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                    <img src="<%=basePath%><s:property value='session.user.img'/>" alt="" />
+                                  </div>
+                                  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height:150px; line-height: 20px;">
+                                  </div>
+                                  <div>
+                                      <span class="btn btn-file btn-primary">
+                                         <span class="fileupload-new">换张图片</span>
+                                         <span class="fileupload-exists">换张图片</span>
+                                         <input type="file" name="image"/>
+                                      </span>
+                                      <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">取消</a>
+                                  </div>
+                              </div>
+	        </div>
 	      <div class="form-group reg-form-row">
 	          <label for="validacode" class="control-label col-sm-4">验证码</label>
 	          <div class="col-sm-3">
@@ -131,6 +144,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-fileupload.js"></script>
    <script src="js/bootstrapValidator.js"></script>
   </body>
 </html>

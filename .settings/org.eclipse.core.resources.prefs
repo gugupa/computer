@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//WebRoot/css=UTF-8
 encoding//WebRoot/css/index.css=UTF-8
 encoding//WebRoot/css/login.css=UTF-8
+encoding//WebRoot/css/person.css=UTF-8
 encoding//WebRoot/css/resultList.css=UTF-8
 encoding//src/action/CommentAction.java=UTF-8
 encoding//src/dao/ArticleDaoImpl.java=UTF-8

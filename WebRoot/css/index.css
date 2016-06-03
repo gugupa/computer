@@ -1,4 +1,9 @@
 
+.LogOrReg{
+	line-height: 48px;
+	position:relative;
+	margin-left:30px;
+}
 /*添加文章按钮*/
 .add_article_button{
 	margin-top:10px;
@@ -20,3 +25,4 @@
     padding:0;
     border-left: none;
 }
+

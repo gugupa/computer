@@ -8,7 +8,7 @@ public interface ArticleService {
 
 	public boolean saveArticle(Article model);
 	public Article loadArticle (Integer id);
-	public List<Article> listAllValidArticles() ;
+	public List<Article> listValidArticlesByPage(int page,int pagesize) ;
 	public List<Article> searchArticleByKeyword(String hql);
 
 }

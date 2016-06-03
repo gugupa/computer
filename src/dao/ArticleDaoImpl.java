@@ -3,6 +3,10 @@ package dao;
 import java.io.Serializable;
 import java.util.List;
 
+import model.Article;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -51,7 +55,27 @@ public class ArticleDaoImpl extends HibernateDaoSupport implements ArticleDao{
     {   
   
         super.setSessionFactory(sessionFactory);   
-    }  
+    }
 	
+//
+//	public List<Article> queryListObjectAllForPage() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	public List<Article> queryListObjectAllForPage(String queryString,int pageSize,int page) {
+		Session session = this.getHibernateTemplate().getSessionFactory().openSession();
+		Query query = session.createQuery(queryString);
+		query.setFirstResult((page-1)*pageSize);
+		query.setMaxResults(pageSize);
+		List<Article> list= (List<Article>)query.list();
+		session.close();
+		return list;
+	}
+
+	public List<Article> queryListObjectAllForPage() {
+		// TODO Auto-generated method stub
+		return null;
+	}  
 
 }

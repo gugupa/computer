@@ -31,13 +31,4 @@ body{
 /*主页框架集*/
 .mainframe{border:none;height:1000px;margin-top:30px;padding: 5px;}
 
-/*独立文章结果页面:临时写在这以后再移走*/
-.result{
-	padding:0 168px;
-}
-.result_title{
-	color:rgb(210,50,45);
-}
-.result_content{
-	white-space:pre-wrap;
-}
+

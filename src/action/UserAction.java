@@ -24,7 +24,7 @@ import util.MD5;
 
 import model.User;
 
-@Controller(value="UserAction")  @Scope("prototype") @Validations
+@Controller(value="UserAction")  @Scope("prototype") 
 public class UserAction extends ActionSupport implements ModelDriven<User>{
 	
 	User user=new User();

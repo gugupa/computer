@@ -46,18 +46,17 @@ public class ArticleServiceImpl implements ArticleService{
 	}
 	
 	
-   //返回所有验证过的书籍
-   public List<Article> listAllValidArticles() {
-		try
-		{
-			return dao.query("from Article as a where a.state='1'");
-			
-		}catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		return null;
-	}
+   //返回所有验证过的书籍(被弃用)
+//   public List<Article> listAllValidArticles() {
+//		try
+//		{
+//			return dao.query("from Article as a where a.state='1'");	
+//		}catch(Exception e)
+//		{
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
    
    //根据搜索关键字返回文章
    public List searchArticleByKeyword(String hql)
@@ -68,6 +67,23 @@ public class ArticleServiceImpl implements ArticleService{
 		{
 			e.printStackTrace();
 		}
+		return null;
+	}
+
+   //按页返回验证过的文章
+	public List<Article> listValidArticlesByPage(int page,int pagesize) {
+		try{
+			String hql= "from Article as a where a.state='1'";
+			return dao.queryListObjectAllForPage(hql,pagesize,page);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public List<Article> listAllValidArticles() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

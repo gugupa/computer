@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      <div class="form-group reg-form-row">
 	          <label for="image" class="col-sm-4 control-label">头像</label>
 	          <div class="col-sm-5">
-	             <input type="file" id="image" name="image" />
+	             <input type="file" id="image" name="image" class="btn btn-default"/>
 	          </div>
 	      </div>
 	      <div class="form-group reg-form-row">

@@ -1,0 +1,31 @@
+/*文章显示板块*/
+.result{
+
+}
+/*文章附属信息*/
+.author-name{
+   color:rgb(0,162,202);
+}
+/*result文章单篇显示*/
+.result_title{
+	font-weight:bolder;
+}
+.result_content{
+	margin-top:10px;
+    white-space:pre-wrap;
+}
+
+
+/*右侧作者信息和作者热门文章的板块*/
+.author{
+	
+}
+.author-info{
+	height:184px;
+	background-color:rgb(239,241,244);
+}
+.author-hot{
+	height:488px;
+	background-color:rgb(239,241,244);
+    margin-top:20px;
+}

@@ -74,10 +74,20 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return INPUT;	
 	}
 	
-	//浏览所有已发布文章
-	public String browseValidArticles()
-	{
-		articles=a_service.listAllValidArticles();
+//	//浏览所有已发布文章
+//	public String browseValidArticles()
+//	{
+//		articles=a_service.listAllValidArticles();
+//		ServletActionContext.getRequest().getSession().setAttribute("articles",articles);
+//		return "resultList";
+//	}
+	
+    //按页加载验证过的文章
+	public String browseArticlesByPage(){
+		int page=Integer.valueOf(ServletActionContext.getRequest().getParameter("page"));
+		int pagesize=5;
+		System.out.println(page+" "+pagesize);
+		articles=a_service.listValidArticlesByPage(page, pagesize);
 		ServletActionContext.getRequest().getSession().setAttribute("articles",articles);
 		return "resultList";
 	}

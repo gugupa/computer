@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     function getResult(keyword){
         var mainframe=document.getElementById('mainframe');
         mainframe.src="Article_searchArticles?keyword=编程语言&ie=utf-8";
-    }
+    }   
  </script>
   </head>
   
@@ -45,8 +45,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       <li role="presentation" class="dropdown">	       
 	        <c:choose>
 	           <c:when test="${session.user==null}">
-	               <a href="<%=basePath%>/login.jsp" target="_self">登录</a>
-	               <a href="<%=basePath%>/regUser.jsp" target="_self">注册</a> 
+	              <div class="LogOrReg">
+	                 <a href="<%=basePath%>/login.jsp" target="_self">登录</a>
+	                 <a href="<%=basePath%>/regUser.jsp" target="_self">注册</a> 
+	              </div> 
 	           </c:when>
 	           <c:otherwise>
 	                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -83,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
        
     <div>
-       <iframe id="mainframe" src="Article_browseValidArticles" name="mainframe"  scrolling="auto" width="1014px" class="mainframe"></iframe>  
+       <iframe id="mainframe" src="Article_browseArticlesByPage?page=1" name="mainframe"  scrolling="auto" width="1014px" class="mainframe"></iframe>  
     </div>
   </main>
    <script src="js/jquery.min.js"></script>

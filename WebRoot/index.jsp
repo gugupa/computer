@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <header>
+  ogi<header>
       <nav class="banner">
 	     <ul class="nav nav-pills">
 	       <li role="presentation" class="active">
@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <c:choose>
 	           <c:when test="${session.user==null}">
 	              <div class="LogOrReg">
-	                 <a href="<%=basePath%>/login.jsp" target="_self">登录</a>
+	                 <a href="<%=basePath%>/login.jsp" target="_self" data-toggle="modal" data-target="#loginbox">登录</a>
 	                 <a href="<%=basePath%>/regUser.jsp" target="_self">注册</a> 
 	              </div> 
 	           </c:when>
@@ -88,6 +88,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <iframe id="mainframe" src="Article_browseArticlesByPage?page=1" name="mainframe"  scrolling="auto" width="1014px" class="mainframe"></iframe>  
     </div>
   </main>
+  
+  <!-- 用于登录的模态框 -->
+   <div id="loginbox">
+       
+   </div>
+   
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
   </body>

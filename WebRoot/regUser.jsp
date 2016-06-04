@@ -63,11 +63,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                          }
                      }
                   }
-             })
+             });
         }
         );
  </script>  
- 
+ <script type="text/javascript">
+	function reloadCode(){
+	var time=new Date().getTime();
+	document.getElementById("imagecode").src="<%=path %>/bImage.jpg?d="+time;
+	}
+	</script>
   
     
   </head>
@@ -119,7 +124,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                       </span>
                                       <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">取消</a>
                                   </div>
-                              </div>
+             </div>
+	        </div>
 	        </div>
 	      <div class="form-group">
 				    <div class="col-sm-offset-4">
@@ -134,6 +140,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          <label for="validacode" class="control-label col-sm-4">验证码</label>
 	          <div class="col-sm-3">
 	             <s:textfield  id="validacode" name="validacode" cssClass="form-control"/>
+	              <img alt="验证码" id="imagecode" src="<%=path %>/bImage.jpg" />
+    				<a href="javascript:reloadCode();">看不清楚</a><br/>
 	          </div>
 	      </div>
 	    <p><s:submit value="提交" cssClass="btn btn-primary col-sm-offset-5"/></p>	   

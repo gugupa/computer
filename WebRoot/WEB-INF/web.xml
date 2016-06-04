@@ -30,6 +30,15 @@
    org.springframework.web.context.ContextLoaderListener
 </listener-class>
 </listener>
-  
+
+  <servlet>
+    <servlet-name>ImageServlet</servlet-name>
+    <servlet-class>code.ImageServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ImageServlet</servlet-name>
+    <url-pattern>/bImage.jpg</url-pattern>
+  </servlet-mapping>
 	
 </web-app>

@@ -34,13 +34,37 @@ public class UserServiceImpl implements UserService{
 		return status;
 	}
 
-	public User login(User user) {
-		return (User)dao.loadObject("from User a where a.email='"+user.getEmail()+"' and a.password='"+user.getPassword()+"'");
+	/*用户登录*/
+	public User login(String email_username,User user) {
+		User rs=null;
+		/*查询（昵称or用户名）*/
+		String find="from User a where (a.username='"+email_username+"' or a.email='"+email_username+"') and a.password='"+user.getPassword()+"'";		
+		System.out.println(find);
+		rs=(User)dao.loadObject(find);
+		return rs;
 	}
-	
-	/*查询该邮箱是否已经存在*/
-	public User queryUser(String email) {
-		return (User) dao.loadObject("from User a where a.email='"+email+"'");
+
+	/*修改用户基本信息:邮箱 用户名 昵称*/
+	public boolean editUser(User user){
+		boolean status = false;
+		try{
+			System.out.println("editUser:"+user.getId());
+			dao.saveOrUpdate(user);
+			status = true;
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}	
+		return status;
+	}
+
+	/*查询用户邮箱是否已经存在*/
+	public User checkEmail(String email) {
+		return (User) dao.loadObject("from User u where u.email='"+email+"'");
+	}
+
+	/*查询用户昵称是否已经存在*/
+	public User checkUsername(String username) {
+		return (User) dao.loadObject("from User u where u.username='"+username+"'");
 	}
 	
 	

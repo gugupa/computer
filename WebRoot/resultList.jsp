@@ -16,9 +16,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet"  href="css/styles.css">
     <link rel="stylesheet"  href="css/resultList.css">
     
-    <script src="js/jquery.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/jquery.dotdotdot.js"  type="text/javascript"></script>
+    <script src="js/jquery.min.js" ></script>
+    <script src="js/bootstrap.min.js" ></script>
+    <script src="js/jquery.dotdotdot.js" ></script>
     
     
 	<script type="text/javascript">
@@ -90,26 +90,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		 </div> 	   
       </li>   
     </c:forEach>
-   </ul>          
-
-   <nav>
-	  <ul class="pagination">
-	    <li>
-	      <a href="#" aria-label="Previous">
-	        <span aria-hidden="true">&laquo;</span>
-	      </a>
-	    </li>
-	    <li><a href="Article_browseArticlesByPage?page=1">1</a></li>
-	    <li><a href="Article_browseArticlesByPage?page=2">2</a></li>
-	    <li><a href="Article_browseArticlesByPage?page=3">3</a></li>
-	    <li><a href="Article_browseArticlesByPage?page=4">4</a></li>
-	    <li><a href="Article_browseArticlesByPage?page=5">5</a></li>
-	    <li>
-	      <a href="#" aria-label="Next">
-	        <span aria-hidden="true">&raquo;</span>
-	      </a>
-	    </li>
-	  </ul>
-	</nav>
+   </ul> 
+   <c:out value="${listSize}"/>         
+  <c:out value="${listSize/10+1}"/>
+  <c:out value="${listSize==0}"/>
+   <footer class="page-turn"> 
+		  <c:choose>
+		     <c:when test="${listSize!=0}">
+		        <p>很遗憾，没有相关结果.....</p>
+		     </c:when>
+		     <c:otherwise>
+		          <ul class="pagination">
+				    <li>
+				      <a href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <c:forEach var="i" begin="0" end="${listSize/10}" step="1">
+				       <li><a href="Article_browseArticlesByPage?page=<c:out value="${i}"/>"><c:out value="${i}"/></a></li>
+					</c:forEach>					
+				    <li>
+				      <a href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				  </ul>
+		     </c:otherwise>
+		  </c:choose>
+     </footer>
   </body>
 </html>

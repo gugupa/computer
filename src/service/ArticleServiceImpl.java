@@ -23,8 +23,8 @@ public class ArticleServiceImpl implements ArticleService{
 		this.dao = dao;
 	}
 
-	//保存文章
-	public boolean saveArticle(Article article) {
+	//添加一篇新文章
+	public boolean newArticle(Article article) {
 		try
 		{
 			dao.saveOrUpdate(article);
@@ -44,19 +44,6 @@ public class ArticleServiceImpl implements ArticleService{
 		}
 		return null;
 	}
-	
-	
-   //返回所有验证过的书籍(被弃用)
-//   public List<Article> listAllValidArticles() {
-//		try
-//		{
-//			return dao.query("from Article as a where a.state='1'");	
-//		}catch(Exception e)
-//		{
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
    
    //根据搜索关键字返回文章
    public List searchArticleByKeyword(String hql)
@@ -82,9 +69,9 @@ public class ArticleServiceImpl implements ArticleService{
 		return null;
 	}
 
-	public List<Article> listAllValidArticles() {
-		// TODO Auto-generated method stub
-		return null;
+	//符合条件     罗列在resultList的文章共有多少篇
+	public int querySize(String hql) {
+		return dao.query(hql).size();
 	}
 
    

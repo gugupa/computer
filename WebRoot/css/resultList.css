@@ -1,6 +1,5 @@
 body{
-    background: none;
-    overflow:hidden;
+    background: red;
 }
 
 
@@ -33,4 +32,9 @@ body{
  }
  .rslist_acontent a:hover{
     color:#aaa;
+ }
+ 
+ /*页脚的翻页区*/
+ .page-turn{
+    margin: 50px;
  }

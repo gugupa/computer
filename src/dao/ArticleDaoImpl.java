@@ -53,7 +53,6 @@ public class ArticleDaoImpl extends HibernateDaoSupport implements ArticleDao{
 	@Autowired  
     public void setSessionFactoryOverride(SessionFactory sessionFactory)   
     {   
-  
         super.setSessionFactory(sessionFactory);   
     }
 	

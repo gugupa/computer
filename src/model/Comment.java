@@ -21,9 +21,9 @@ public class Comment implements java.io.Serializable {
 	// Fields
 
 	private Integer inforId;
-	private Article articleId;
-	private Integer receiverId;
-	private Integer senderId;
+	private User userByReceiverId;
+	private User userBySenderId;
+	private Article article;
 	private String commentContent;
 	private Timestamp commentTime;
 
@@ -34,11 +34,11 @@ public class Comment implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Comment(Article article, Integer receiverId, Integer senderId,
+	public Comment(User userByReceiverId, User userBySenderId, Article article,
 			String commentContent, Timestamp commentTime) {
-		this.articleId = article;
-		this.receiverId = receiverId;
-		this.senderId = senderId;
+		this.userByReceiverId = userByReceiverId;
+		this.userBySenderId = userBySenderId;
+		this.article = article;
 		this.commentContent = commentContent;
 		this.commentTime = commentTime;
 	}
@@ -55,35 +55,37 @@ public class Comment implements java.io.Serializable {
 		this.inforId = inforId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "article_id")
-	public Article getArticleId() {
-		return this.articleId;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "receiver_id", nullable = false)
+	public User getUserByReceiverId() {
+		return this.userByReceiverId;
 	}
 
-	public void setArticleId(Article articleId) {
-		this.articleId = articleId;
+	public void setUserByReceiverId(User userByReceiverId) {
+		this.userByReceiverId = userByReceiverId;
 	}
 
-	@Column(name = "receiver_id")
-	public Integer getReceiverId() {
-		return this.receiverId;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "sender_id", nullable = false)
+	public User getUserBySenderId() {
+		return this.userBySenderId;
 	}
 
-	public void setReceiverId(Integer receiverId) {
-		this.receiverId = receiverId;
+	public void setUserBySenderId(User userBySenderId) {
+		this.userBySenderId = userBySenderId;
 	}
 
-	@Column(name = "sender_id")
-	public Integer getSenderId() {
-		return this.senderId;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "article_id", nullable = false)
+	public Article getArticle() {
+		return this.article;
 	}
 
-	public void setSenderId(Integer senderId) {
-		this.senderId = senderId;
+	public void setArticle(Article article) {
+		this.article = article;
 	}
 
-	@Column(name = "comment_content", length = 50)
+	@Column(name = "comment_content", nullable = false, length = 50)
 	public String getCommentContent() {
 		return this.commentContent;
 	}
@@ -92,7 +94,7 @@ public class Comment implements java.io.Serializable {
 		this.commentContent = commentContent;
 	}
 
-	@Column(name = "comment_time", length = 19)
+	@Column(name = "comment_time", nullable = false, length = 19)
 	public Timestamp getCommentTime() {
 		return this.commentTime;
 	}

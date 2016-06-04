@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,12 +25,13 @@ public class Article implements java.io.Serializable {
 	// Fields
 
 	private Integer articleId;
+	private User user;
 	private String title;
-	private String author;
 	private String acontent;
 	private Timestamp uptime;
 	private Integer state;
 	private Integer credit;
+	private Set<Comment> comments = new HashSet<Comment>(0);
 
 	// Constructors
 
@@ -37,21 +40,26 @@ public class Article implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Article(String title, String acontent) {
+	public Article(User user, String title, String acontent, Timestamp uptime,
+			Integer state, Integer credit) {
+		this.user = user;
 		this.title = title;
-		this.acontent = acontent;
-	}
-
-	/** full constructor */
-	public Article(String title, String author, String acontent,
-			Timestamp uptime, Integer state, Integer credit,
-			Set<Comment> comments) {
-		this.title = title;
-		this.author = author;
 		this.acontent = acontent;
 		this.uptime = uptime;
 		this.state = state;
 		this.credit = credit;
+	}
+
+	/** full constructor */
+	public Article(User user, String title, String acontent, Timestamp uptime,
+			Integer state, Integer credit, Set<Comment> comments) {
+		this.user = user;
+		this.title = title;
+		this.acontent = acontent;
+		this.uptime = uptime;
+		this.state = state;
+		this.credit = credit;
+		this.comments = comments;
 	}
 
 	// Property accessors
@@ -66,7 +74,17 @@ public class Article implements java.io.Serializable {
 		this.articleId = articleId;
 	}
 
-	@Column(name = "title", nullable = false, length = 50)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "author_id", nullable = false)
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Column(name = "title", nullable = false, length = 200)
 	public String getTitle() {
 		return this.title;
 	}
@@ -75,16 +93,7 @@ public class Article implements java.io.Serializable {
 		this.title = title;
 	}
 
-	@Column(name = "author", length = 20)
-	public String getAuthor() {
-		return this.author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	@Column(name = "acontent", nullable = false, length = 2000)
+	@Column(name = "acontent", nullable = false, length = 20000)
 	public String getAcontent() {
 		return this.acontent;
 	}
@@ -93,7 +102,7 @@ public class Article implements java.io.Serializable {
 		this.acontent = acontent;
 	}
 
-	@Column(name = "uptime", length = 19)
+	@Column(name = "uptime", nullable = false, length = 19)
 	public Timestamp getUptime() {
 		return this.uptime;
 	}
@@ -102,7 +111,7 @@ public class Article implements java.io.Serializable {
 		this.uptime = uptime;
 	}
 
-	@Column(name = "state")
+	@Column(name = "state", nullable = false)
 	public Integer getState() {
 		return this.state;
 	}
@@ -111,7 +120,7 @@ public class Article implements java.io.Serializable {
 		this.state = state;
 	}
 
-	@Column(name = "credit")
+	@Column(name = "credit", nullable = false)
 	public Integer getCredit() {
 		return this.credit;
 	}
@@ -119,4 +128,14 @@ public class Article implements java.io.Serializable {
 	public void setCredit(Integer credit) {
 		this.credit = credit;
 	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "article")
+	public Set<Comment> getComments() {
+		return this.comments;
+	}
+
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
+	}
+
 }

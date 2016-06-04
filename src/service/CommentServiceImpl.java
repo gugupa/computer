@@ -26,7 +26,7 @@ public class CommentServiceImpl implements CommentService{
 	
 	//根据指定文章id返回相应的评论
 	public List<Comment> listAllValidComments(Integer articleId) {
-		String hql="from Comment as c where c.articleId="+articleId;
+		String hql="from Comment as c where c.article.articleId="+articleId;
 		return dao.query(hql);
 	}
 

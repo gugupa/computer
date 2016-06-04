@@ -1,5 +1,6 @@
 package action;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -41,20 +42,22 @@ public class CommentAction extends ActionSupport implements ModelDriven<Comment>
 	//保存一条评论,添加完成以后仍是在当前页面
 	public String saveComment(){
 		
-		//评论人id记录:sender
-		User reviewer=(User) ServletActionContext.getRequest().getSession().getAttribute("user");
-		getModel().setSenderId(reviewer.getId());
-		  
+		//记录评论人:sender
+		User sender=(User) ServletActionContext.getRequest().getSession().getAttribute("user");
+		getModel().setUserBySenderId(sender);
 		
-		//当前文章的记录:article_id
+		//记录当前文章:article_id
 		Article tempArticle=(Article) ServletActionContext.getRequest().getSession().getAttribute("tempArticle");
-		getModel().setArticleId(tempArticle);
+		getModel().setArticle(tempArticle);
+		  
+		//记录接收者:sender（为了消息提示的功能扩展？）
+		User receiver=tempArticle.getUser();
+		getModel().setUserByReceiverId(receiver);
+
+		//记录评论时间：comment_time
+		Timestamp d = new Timestamp(System.currentTimeMillis()); 
+		getModel().setCommentTime(d);
 		
-		System.out.println("User："+reviewer);
-		System.out.println("Article："+tempArticle);
-		System.out.println("saveComment");
-		String CommentContent=getModel().getCommentContent();
-		System.out.println("getCommentContent:"+CommentContent);
 		c_service.saveComment(getModel());
 		
 		return INPUT;

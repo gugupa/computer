@@ -13,7 +13,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
 
 //	保存或更新用户
 	public void saveOrUpdate(Object object) {
-		getHibernateTemplate().saveOrUpdate(object);	
+		getHibernateTemplate().saveOrUpdate(object);
 	}
 
 	public Object loadObject(String hql) {

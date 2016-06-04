@@ -121,6 +121,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                   </div>
                               </div>
 	        </div>
+	      <div class="form-group">
+				    <div class="col-sm-offset-4">
+				      <div class="checkbox">
+				        <label>
+				          <input type="checkbox">阅读并接受<a href="#" >《Cat用户协议》</a>
+				        </label>
+				      </div>   
+				    </div>
+		</div>
 	      <div class="form-group reg-form-row">
 	          <label for="validacode" class="control-label col-sm-4">验证码</label>
 	          <div class="col-sm-3">
@@ -144,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-fileupload.js"></script>
+   <script src="js/bootstrap-fileupload.js"></script>
    <script src="js/bootstrapValidator.js"></script>
   </body>
 </html>

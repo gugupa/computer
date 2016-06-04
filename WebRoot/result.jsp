@@ -61,7 +61,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            <h2><c:out value="${session.tempArticle.title}"></c:out></h2>
 	        </div>
 	        <div class="result_info">
-	            <span class="author-name"><a href="这里希望连接到作者的主页">${session.tempArticle.author}</a></span>
+	            <!-- 作者名字的连接-去作者主页 -->
+	            <span class="author-name"><a href="#">${session.tempArticle.user.username}</a></span>
 	            <span>${session.tempArticle.uptime}</span>
 	        </div>
 	        <div class="result_content">
@@ -102,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <div class="author-info">
 	             <div>
 	               <span><img src="#"/></span>
-	               <span>${session.tempArticle.author}</span>
+	               <span>${session.tempArticle.user.username}</span>
 	             </div>
 	             <div>
 	                <button class="btn btn-default">关注</button>

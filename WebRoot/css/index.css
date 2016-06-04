@@ -1,13 +1,15 @@
+/*首页home小图标*/
+.banner_home i{
+	color:rgb(210,50,45);
+}
 
-.LogOrReg{
-	line-height: 48px;
-	position:relative;
-	margin-left:30px;
+.login-reg,.user-state{
+	margin-left: 40px;
 }
 /*添加文章按钮*/
 .add_article_button{
-	margin-top:10px;
-	margin-left:-35px;
+	margin-left:10px;
+	line-height:48px;
     text-align: center;
 }
 .add_article_button a,a:hover,a:focus{
@@ -15,14 +17,24 @@
 	text-decoration: none;
 }
 
+
 /*搜索框*/
 .search_box{
-	margin-top:10px;
-	float:right;
+	line-height: 48px;
 }
-.addon_button{
-    background: none;
-    padding:0;
+.search_input{
+	border-right: none;
+	border-top-right-radius:0;
+	border-bottom-right-radius:0;
+}
+.search-icon,.search-icon>button{
     border-left: none;
+    border-top-left-radius:0;
+	border-bottom-left-radius:0;
 }
+/*登录模态框*/
+.from-login label{
+	vertical-align: middle;
+}
+
 

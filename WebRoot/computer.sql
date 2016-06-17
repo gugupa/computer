@@ -55,11 +55,11 @@ CREATE TABLE `comment` (
   CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`article_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`receiver_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `comment_ibfk_3` FOREIGN KEY (`sender_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Data for the table `comment` */
 
-insert  into `comment`(`infor_id`,`article_id`,`receiver_id`,`sender_id`,`comment_content`,`comment_time`) values (7,19,32,33,'在这里写下你的评论rrrrrrrrrrrr','2016-06-03 18:17:57');
+insert  into `comment`(`infor_id`,`article_id`,`receiver_id`,`sender_id`,`comment_content`,`comment_time`) values (7,19,32,33,'在这里写下你的评论rrrrrrrrrrrr','2016-06-03 18:17:57'),(8,22,32,38,'rrrr','2016-06-04 23:52:31'),(9,26,33,38,'uuuuuuuuuuuuuuuu','2016-06-04 23:52:59');
 
 /*Table structure for table `user` */
 

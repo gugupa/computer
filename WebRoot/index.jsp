@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </li>
 	        <li role="presentation">
 	              <div class="search_box">
-				        <s:form action="Article_searchArticles" method="post" cssClass="form-inline">
+				        <s:form action="Article_searchArticles?page=1" method="post" cssClass="form-inline">
 						    <div class="input-group">
 						      <s:textfield name="keyword" id="exampleInputAmount" cssClass="form-control search_input"/>
 						      <span class="input-group-btn search-icon">

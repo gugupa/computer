@@ -91,26 +91,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </li>   
     </c:forEach>
    </ul> 
-   <c:out value="${listSize}"/>         
-  <c:out value="${listSize/10+1}"/>
-  <c:out value="${listSize==0}"/>
+  
    <footer class="page-turn"> 
 		  <c:choose>
-		     <c:when test="${listSize!=0}">
+		     <c:when test="${listSize==0}">
 		        <p>很遗憾，没有相关结果.....</p>
 		     </c:when>
 		     <c:otherwise>
 		          <ul class="pagination">
 				    <li>
-				      <a href="#" aria-label="Previous">
+				      <a href="" aria-label="Previous">
 				        <span aria-hidden="true">&laquo;</span>
 				      </a>
 				    </li>
-				    <c:forEach var="i" begin="0" end="${listSize/10}" step="1">
+				    <c:forEach var="i" begin="1" end="${(listSize-listSize%10)/10+1}" step="1">
 				       <li><a href="Article_browseArticlesByPage?page=<c:out value="${i}"/>"><c:out value="${i}"/></a></li>
 					</c:forEach>					
 				    <li>
-				      <a href="#" aria-label="Next">
+				      <a href="" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
 				      </a>
 				    </li>

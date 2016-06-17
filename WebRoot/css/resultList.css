@@ -1,8 +1,6 @@
 body{
-    background: red;
+    background-color: white;
 }
-
-
 /*resultList文章列表显示*/
 .resultList{
 	background-color:white;

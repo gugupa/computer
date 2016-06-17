@@ -100,7 +100,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	}
 	
 	
-    //按页加载验证过的文章
+    //按页加载验证过的文章:希望这里是一个总的翻页方法
 	public String browseArticlesByPage(){
 		int page=Integer.valueOf(ServletActionContext.getRequest().getParameter("page"));
 		//默认每页显示10条文章
@@ -117,11 +117,11 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	public String searchArticles() {
 	    String keyword=this.getKeyword();
 		String hql="from Article as a where (a.title like '%"+keyword+"%'  or a.acontent like '%"+keyword+"%' ) and a.state=1";
-		System.out.println(this.getKeyword());
-		System.out.println(hql);
 		try{	
-			articles=a_service.searchArticleByKeyword(hql);
+			articles=a_service.searchArticleByKeyword(keyword);
+			listSize=a_service.querySize(hql);
 			ServletActionContext.getRequest().getSession().setAttribute("articles",articles);
+			ServletActionContext.getRequest().getSession().setAttribute("listSize",listSize);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

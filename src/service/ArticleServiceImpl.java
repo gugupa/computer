@@ -46,9 +46,10 @@ public class ArticleServiceImpl implements ArticleService{
 	}
    
    //根据搜索关键字返回文章
-   public List searchArticleByKeyword(String hql)
+   public List searchArticleByKeyword(String keyString)
 	{
 		try{
+			String hql="from Article as a where (a.title like '%"+keyString+"%'  or a.acontent like '%"+keyString+"%' ) and a.state=1";
 			return dao.query(hql);
 		}catch(Exception e)
 		{

@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Timestamp;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -20,6 +21,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.validator.annotations.Validation;
 import com.opensymphony.xwork2.validator.annotations.Validations;
 
+import service.ArticleService;
 import service.UserService;
 import util.MD5;
 
@@ -37,9 +39,14 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	//邮箱或昵称
 	private String email_username;
 	
+	private Map<String,Object> session;
+	
 	@Resource(name="UserService")
 	UserService u_service;
 
+	@Resource(name="ArticleService")
+	ArticleService a_service;
+	
 	public User getModel(){
 		if(user==null){
 			return new User();
@@ -114,6 +121,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		    
 		    //用户注册成功后即为登录状态
 			ServletActionContext.getRequest().getSession().setAttribute("user",getModel());
+			session.put("user", getModel());
 			
 		}else{
 			//弹出消息框的部分有问题 数据库的操作是正确的
@@ -224,6 +232,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		
 		if (tempUser!=null) {
 			ServletActionContext.getRequest().getSession().setAttribute("user",tempUser);
+			viewMyArticles(tempUser.getId());
 			return "index";
 		} else {
 			addActionMessage("用户名或密码错误!");
@@ -231,6 +240,36 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		return "input";
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public ArticleService getA_service() {
+		return a_service;
+	}
+
+
+	public void setA_service(ArticleService aService) {
+		a_service = aService;
+	}
+
+
+	//注销
+	public String quit(){
+		ServletActionContext.getRequest().getSession().removeAttribute("user");
+		return "Person";
+	}
+	
+	
+	public  void viewMyArticles(int id){
+		a_service.listArticleByAuthor(id);
+	}
 	
 	public UserService getU_service() {
 		return u_service;
@@ -272,6 +311,16 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 
 	public String getEmail_username() {
 		return email_username;
+	}
+
+
+	public void setSession(Map<String,Object> session) {
+		this.session = session;
+	}
+
+
+	public Map<String,Object> getSession() {
+		return session;
 	}
 
 

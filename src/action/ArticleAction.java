@@ -1,5 +1,6 @@
 ﻿package action;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -27,6 +28,10 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	
 	Article article=new Article();
 	List<Article> articles;
+	List<Article> authorArticles;
+	List<Article> userArticles;
+	int userArticleSize;
+	int authorArticlesSize;
 	int listSize;
 	
 	private User author;
@@ -42,15 +47,14 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	public Article getModel() {
 		return article;
 	}
-	
-	
 
 	//新发布一篇文章(这里强制设置状态为1)
 	public String releaseArticle() {
 		
 		/*设置文章的所有者*/
 		User author=(User) ServletActionContext.getRequest().getSession().getAttribute("user");
-	    getModel().setUser(author);
+		 getModel().setUser(author);
+			
 		
 		/*更改文章状态,1表示已发布*/
 		getModel().setState(1);
@@ -69,7 +73,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 			this.addActionMessage("发布成功！");	
 		}
 
-		return INPUT;	
+		return "Person";	
 	}
 	
 	//用于添加文章页面的保存（新文章，但是不发布）
@@ -77,7 +81,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		
 		/*设置文章的所有者*/
 		User author=(User) ServletActionContext.getRequest().getSession().getAttribute("user");
-	    getModel().setUser(author);
+	    getModel().setArticleId(author.getId());
 		
 		/*更改文章状态,0表示保存状态*/
 		getModel().setState(0);
@@ -96,7 +100,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 			this.addActionMessage("保存成功！");	
 		}
 
-		return INPUT;	
+		return "Person";	
 	}
 	
 	
@@ -113,9 +117,9 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return "resultList";
 	}
 	
-	//根据标题查询文章
-	public String searchArticles() {
-	    String keyword=this.getKeyword();
+	//查询文章
+	public String searchArticles() throws UnsupportedEncodingException {
+	    String keyword=new String((this.getKeyword()).getBytes( "ISO8859-1"), "UTF-8");
 		String hql="from Article as a where (a.title like '%"+keyword+"%'  or a.acontent like '%"+keyword+"%' ) and a.state=1";
 		try{	
 			articles=a_service.searchArticleByKeyword(keyword);
@@ -140,11 +144,36 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		List<Comment> comments=c_service.listAllValidComments(tempArticle.getArticleId());
 		//将结果comments存入session
 		ServletActionContext.getRequest().getSession().setAttribute("comments", comments);
+		
+		//根据作者id查询作者信息
+		int authorArticleAmount=a_service.querySize("from Article as a where a.user.id="+tempArticle.getUser().getId()+"");
+		ServletActionContext.getRequest().getSession().setAttribute("authorArticleAmount", authorArticleAmount);
+		
+		//根据作者id查询作者文章
+		List<Article> authorArticles=a_service.listArticleByAuthor(tempArticle.getUser().getId());
+		ServletActionContext.getRequest().getSession().setAttribute("authorArticles", authorArticles);
+		
 		return "result";	
 	}
 
 	public void setAuthor(User author) {
 		this.author = author;
+	}
+
+	public List<Article> getAuthorArticles() {
+		return authorArticles;
+	}
+
+	public void setAuthorArticles(List<Article> authorArticles) {
+		this.authorArticles = authorArticles;
+	}
+
+	public int getAuthorArticlesSize() {
+		return authorArticlesSize;
+	}
+
+	public void setAuthorArticlesSize(int authorArticlesSize) {
+		this.authorArticlesSize = authorArticlesSize;
 	}
 
 	public User getAuthor() {
@@ -167,5 +196,4 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		this.keyword = keyword;
 	}
 
-	
 }

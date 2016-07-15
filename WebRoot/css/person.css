@@ -2,3 +2,33 @@
 .reg-form{
     margin-top:80px;
 }
+
+.person-info{
+	background-color: rgb(240,240,240);
+	height:100vh;
+}
+.person-baseinfo{
+	padding-top:30px;
+    text-align: center;
+} 
+.person-baseinfo img{
+	width:80px;
+	height:80px;
+	border-radius:40px;
+	border:1px solid #54777d;
+}
+
+.person-nav li{
+	float:left;
+}
+.person-nav-a{
+	background-color:none;
+	border:1px solid rgb(234,234,234);
+}
+.person-nav-a:hover,.person-nav-a:focus{
+	background-color:rgb(234,234,234);
+	border:1px solid #54777d;
+	border-radius:5px;
+	outline:none;
+}
+

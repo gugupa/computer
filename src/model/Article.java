@@ -25,8 +25,8 @@ public class Article implements java.io.Serializable {
 	// Fields
 
 	private Integer articleId;
-	private User user;
 	private String title;
+	private User user;
 	private String acontent;
 	private Timestamp uptime;
 	private Integer state;
@@ -72,16 +72,6 @@ public class Article implements java.io.Serializable {
 
 	public void setArticleId(Integer articleId) {
 		this.articleId = articleId;
-	}
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "author_id", nullable = false)
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	@Column(name = "title", nullable = false, length = 200)
@@ -138,4 +128,16 @@ public class Article implements java.io.Serializable {
 		this.comments = comments;
 	}
 
+	
+
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "author_id", nullable = false)
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 }

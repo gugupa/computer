@@ -75,5 +75,10 @@ public class ArticleServiceImpl implements ArticleService{
 		return dao.query(hql).size();
 	}
 
+	public List<Article> listArticleByAuthor(Integer id) {
+		String hql= "from Article as a where a.user.id='"+id+"'";
+		return dao.query(hql);
+	}
+
    
 }

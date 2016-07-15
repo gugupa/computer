@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>用户注册</title>
+    <title>Cat-注册</title>
     
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap.min.css">
     <link rel="stylesheet"  href="css/font-awesome.min.css">
@@ -107,34 +107,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	              <input type="password" id="again_password" name="again_password" class="form-control" placeholder="再次输入密码"/>
 	           </div>      
 	       </div>
+	       
+	       
+	       
+	       
 	      <div class="form-group reg-form-row">
 	          <label for="image" class="col-sm-4 control-label">头像</label>
 	          <div class="col-sm-5">
 	          <div class="fileupload fileupload-new" data-provides="fileupload">
-                                  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                                    <img src="<%=basePath%><s:property value='session.user.img'/>" alt="" />
-                                  </div>
-                                  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height:150px; line-height: 20px;">
-                                  </div>
-                                  <div>
-                                      <span class="btn btn-file btn-primary">
-                                         <span class="fileupload-new">换张图片</span>
-                                         <span class="fileupload-exists">换张图片</span>
-                                         <input type="file" name="image"/>
-                                      </span>
-                                      <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">取消</a>
-                                  </div>
+                      <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                        <img src="<%=basePath%><s:property value='session.user.img'/>" alt="" />
+                      </div>
+                      <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height:150px; line-height: 20px;">
+                      </div>
+                      <div>
+                          <span class="btn btn-file btn-primary">
+                             <span class="fileupload-new">换张图片</span>
+                             <span class="fileupload-exists">换张图片</span>
+                             <input type="file" name="image"/>
+                          </span>
+                          <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">取消</a>
+                      </div>
              </div>
 	        </div>
-	        </div>
+	     </div>
+	                
 	      <div class="form-group">
-				    <div class="col-sm-offset-4">
-				      <div class="checkbox">
-				        <label>
-				          <input type="checkbox">阅读并接受<a href="#" >《Cat用户协议》</a>
-				        </label>
-				      </div>   
-				    </div>
+		    <div class="col-sm-offset-4">
+		      <div class="checkbox">
+		        <label>
+		          <input type="checkbox">阅读并接受<a href="#" >《Cat用户协议》</a>
+		        </label>
+		      </div>   
+		    </div>
 		</div>
 	      <div class="form-group reg-form-row">
 	          <label for="validacode" class="control-label col-sm-4">验证码</label>

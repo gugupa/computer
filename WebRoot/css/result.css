@@ -6,6 +6,10 @@
 .author-name{
    color:rgb(0,162,202);
 }
+/*添加评论*/
+.writeComment{
+	width:100%;
+}
 /*result文章单篇显示*/
 .result_title{
 	font-weight:bolder;
@@ -23,9 +27,35 @@
 .author-info{
 	height:184px;
 	background-color:rgb(239,241,244);
+	text-align:center;
+	padding-top:20px;
+}
+.author-info .author-img{
+	
+}
+.author-img img{
+	border-radius:40px;
+}
+.author-info span{
+    color:rgb(153,153,153);
+}
+.author-info .author-name{
+	display: inline-block;
+	margin-bottom: 10px;
 }
 .author-hot{
-	height:488px;
 	background-color:rgb(239,241,244);
     margin-top:20px;
+}
+.author-hot-title{
+    line-height: 30px;
+    padding-left: 10px;
+    border-bottom: solid 1px rgb(227,228,230);
+}
+.author-hot-list{
+    padding-left: 20px;
+}
+.author-hot-list ul li{
+    list-style:circle; 
+    margin-bottom: 5px;
 }

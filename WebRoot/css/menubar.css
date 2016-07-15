@@ -1,0 +1,95 @@
+
+/*导航条*/
+header{
+    background-color:rgb(84,119,125);
+    box-shadow:0px 0px 4px rgb(234,234,234);
+}
+.banner{
+	margin:0 auto;
+	width:1024px;
+}
+.banner_a{
+	color:white;
+	line-height: 40px;
+	background-color:rgb(84,119,125);
+}
+.banner_a:hover,.banner_a:focus{
+	background-color:rgb(84,119,125);
+	border-buttom:2px solid rgb(234,234,234);
+	border-radius:0;
+	line-height: 40px;
+}
+
+/*首页home小图标*/
+.banner_home i{
+	color:rgb(210,50,45);
+}
+.login-reg,.user-state{
+	margin-left: 40px;
+}
+/*添加文章按钮*/
+.add_article_button{
+	margin-left:20px;
+	line-height:60px;
+	display:inline;
+}
+.add_article_button a,a:hover,a:focus{
+	outline:none;
+	text-decoration: none;
+}
+
+
+/*搜索框*/
+.search_box{
+	line-height: 60px;
+	margin-left:20px;
+}
+.btn-search{
+	background-color: #eadb9d;
+	border:1px solid #eadb9d;
+	border-left: none;
+    border-top-left-radius:0;
+	border-bottom-left-radius:0;
+}
+.btn-search:hover{
+	background-color: #feffe4;
+	border:1px solid #eadb9d;
+	border-left: none;
+    border-top-left-radius:0;
+	border-bottom-left-radius:0;
+}
+.btn-search:hover>i{
+	color: #eadb9d;
+}
+.search_input{
+	background-color: #feffe4;
+	border:1px soild #eadb9d;
+	border-right: none;
+	border-top-right-radius:0;
+	border-bottom-right-radius:0;
+}
+.search_input:hover,.search_input:focus{
+	background-color: #feffe4;
+	border:1px solid #eadb9d;
+	border-right: none;
+	border-top-right-radius:0;
+	border-bottom-right-radius:0;
+	outline:none;
+}
+.search-icon{
+    border-left: none;
+    border-top-left-radius:0;
+	border-bottom-left-radius:0;
+}
+
+.login-reg{
+	line-height: 60px;
+	
+}
+.login-reg>a{
+	color:white;
+}
+/*登录模态框*/
+.from-login label{
+	vertical-align: middle;
+}

@@ -11,5 +11,5 @@ public interface ArticleService {
 	public List<Article> listValidArticlesByPage(int page,int pagesize) ;
 	public List<Article> searchArticleByKeyword(String keyString);
 	public int querySize(String hql);
-
+	public List<Article> listArticleByAuthor(Integer id);
 }

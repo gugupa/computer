@@ -4,31 +4,67 @@
 }
 body{
 	color:black;
-	background-color:#fff;
-/*background-image: url(../images/login_img.jpg); 
+	background-color:rgb(234,234,234);
+   /*background-image: url(../images/login_img.jpg); 
 	background-size: cover;*/
 	font-family:"YouYuan";
+}
+.mt-5{
+	margin-top:5px;
 }
 /*容器*/
 .contain{
 	width:1024px;
 	margin:0 auto;
+	margin-top:10px;
 	background:none;
 }
 
-/*导航条*/
-.banner{
-	margin-left:170px;
-	
+.panel-info{
+	text-align:center;
 }
-.banner_a{
-	line-height: 28px;
-}
-.banner_a:hover,.banner_a:focus{
-	line-height: 28px;
-}
-
 /*主页框架集*/
-.mainframe{border:none;height:1000px;margin-top:30px;padding: 5px;}
+.mainframe{
+	border:none;
+	height:1200px;
+}
+
+.model-box{
+	width:320px;
+	margin:0 auto;
+}
+.model-box-header{
+	background-color: #eadb9d;
+}
+.model-box-body{
+	background-color: #feffe4;
+}
+.model-box-footer{
+	background-color: #e7e3c5;
+	margin: 0;
+}
+
+.login{
+	width:320px;
+	margin:0 auto;
+	padding-top:30px;
+}
+.login>.logo{
+	text-align:center;
+	padding-bottom:120px;
+}
+.login>.logo>a{
+   outline:none;
+}
 
 
+.edit_articles>label{
+	display:inline;
+	text-align: left;
+}
+
+
+.input-title,.input-content{
+	width:800px;
+	margin:0 auto;
+}
